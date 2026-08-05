@@ -1,0 +1,58 @@
+/* ---------------------------------------------------------------
+   styles.css
+   Alles, was Tailwind-Utility-Klassen nicht abdecken:
+   Animationen, Fokus-Stile, Reduced-Motion, Icon-Größen.
+   --------------------------------------------------------------- */
+
+html { scroll-behavior: smooth; }
+body { font-feature-settings: "ss01"; }
+::selection { background: #E8A33D; color: #12141A; }
+
+/* Icons aus js/icons.js erben Größe/Farbe von hier statt von
+   Utility-Klassen im Markup, damit sich Icon-Größen zentral
+   anpassen lassen. */
+.icon-slot svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* FAQ-Akkordeon (natives <details>) */
+summary { list-style: none; cursor: pointer; }
+summary::-webkit-details-marker { display: none; }
+.faq-icon { transition: transform .2s ease; }
+details[open] .faq-icon { transform: rotate(45deg); }
+details[open] .faq-chevron-bg { background-color: #E8A33D; color: #12141A; }
+
+/* Wellenform-Playhead (wird per JS animiert, left: 0% -> 100%) */
+.playhead { left: 0%; pointer-events: none; }
+
+/* Ambient-Wellenform im Hero */
+.hero-amb-bar {
+  animation: amb 2.6s ease-in-out infinite alternate;
+  transform-origin: bottom;
+}
+@keyframes amb {
+  from { transform: scaleY(.28); }
+  to { transform: scaleY(1); }
+}
+
+.card-hover {
+  transition: border-color .2s ease, transform .2s ease, background-color .2s ease;
+}
+.card-hover:hover {
+  border-color: #384056;
+  transform: translateY(-2px);
+}
+
+.play-btn { transition: background-color .15s ease, border-color .15s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+:focus-visible { outline: 2px solid #E8A33D; outline-offset: 2px; }

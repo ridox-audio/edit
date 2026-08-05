@@ -3,90 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>schnitt:stelle — Podcast-Editing für Coaches &amp; Berater</title>
-<meta name="description" content="Professionelle Podcast-Bearbeitung für Coaches, Berater und Selbstständige: Schnitt, Restauration, Mastering, Shownotes. Kostenloses Erstgespräch buchen.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%2312141A'/%3E%3Cpath d='M5 12h2l1.5-5 3 10 2-7 1.5 4h4' stroke='%2345C4B0' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<title>RiDoX Studio</title>
+<meta name="description" content="Podcast-Editing für Coaches, Berater und Selbstständige.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%2312141A'/%3E%3Cpath d='M7 7l10 10M17 7L7 17' stroke='%23E8A33D' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          bg: '#12141A',
-          bgsoft: '#181B22',
-          surface: '#1E222B',
-          surface2: '#252A35',
-          edge: '#2A2F3A',
-          ink: '#EEF0F3',
-          mute: '#8A8F9C',
-          amber: '#E8A33D',
-          teal: '#45C4B0',
-          coral: '#E2604C',
-        },
-        fontFamily: {
-          display: ['"Space Grotesk"', 'sans-serif'],
-          body: ['"IBM Plex Sans"', 'sans-serif'],
-          mono: ['"IBM Plex Mono"', 'monospace'],
-        },
-      }
-    }
-  }
-</script>
-<style>
-  html { scroll-behavior: smooth; }
-  body { font-feature-settings: "ss01"; }
-  ::selection { background: #E8A33D; color: #12141A; }
-
-  summary { list-style: none; cursor: pointer; }
-  summary::-webkit-details-marker { display: none; }
-  .faq-icon { transition: transform .2s ease; }
-  details[open] .faq-icon { transform: rotate(45deg); }
-  details[open] .faq-chevron-bg { background-color: #E8A33D; color: #12141A; }
-
-  .playhead { left: 0%; pointer-events: none; }
-
-  .hero-amb-bar { animation: amb 2.6s ease-in-out infinite alternate; transform-origin: bottom; }
-  @keyframes amb { from { transform: scaleY(.28); } to { transform: scaleY(1); } }
-
-  .card-hover { transition: border-color .2s ease, transform .2s ease, background-color .2s ease; }
-  .card-hover:hover { border-color: #384056; transform: translateY(-2px); }
-
-  .play-btn { transition: background-color .15s ease, border-color .15s ease; }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after {
-      animation-duration: 0.001ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.001ms !important;
-    }
-  }
-
-  :focus-visible { outline: 2px solid #E8A33D; outline-offset: 2px; }
-</style>
+<script src="js/tailwind-config.js"></script>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="bg-bg text-ink font-body antialiased">
 
 <!-- ============ NAV ============ -->
 <header class="sticky top-0 z-50 border-b border-edge/80 bg-bg/85 backdrop-blur">
   <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-    <a href="#top" class="font-display text-lg font-semibold tracking-tight text-ink">
-      schnitt<span class="text-teal">:</span>stelle
+    <a href="#top" class="flex items-baseline gap-2">
+      <span class="font-display text-lg font-semibold tracking-tight text-ink">RiDo<span class="text-amber">X</span></span>
+      <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-mute border-l border-edge pl-2">Studio</span>
     </a>
     <div class="hidden items-center gap-8 md:flex">
-      <a href="#leistungen" class="text-sm text-mute transition hover:text-ink">Leistungen</a>
-      <a href="#beispiele" class="text-sm text-mute transition hover:text-ink">Beispiele</a>
-      <a href="#ablauf" class="text-sm text-mute transition hover:text-ink">Ablauf</a>
-      <a href="#preise" class="text-sm text-mute transition hover:text-ink">Preise</a>
-      <a href="#faq" class="text-sm text-mute transition hover:text-ink">FAQ</a>
+      <a href="#leistungen" class="text-sm text-mute transition hover:text-ink" data-key="nav.leistungen"></a>
+      <a href="#beispiele" class="text-sm text-mute transition hover:text-ink" data-key="nav.beispiele"></a>
+      <a href="#ablauf" class="text-sm text-mute transition hover:text-ink" data-key="nav.ablauf"></a>
+      <a href="#preise" class="text-sm text-mute transition hover:text-ink" data-key="nav.preise"></a>
+      <a href="#faq" class="text-sm text-mute transition hover:text-ink" data-key="nav.faq"></a>
     </div>
     <div class="hidden md:block">
-      <a href="#kontakt" class="rounded-full bg-amber px-5 py-2.5 font-mono text-xs font-medium uppercase tracking-wide text-bg transition hover:bg-amber/90">
-        Erstgespräch buchen
-      </a>
+      <a href="#kontakt" data-cta="primary" class="rounded-full bg-amber px-5 py-2.5 font-mono text-xs font-medium uppercase tracking-wide text-bg transition hover:bg-amber/90" data-key="nav.cta"></a>
     </div>
     <button id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" class="flex h-9 w-9 items-center justify-center rounded-lg border border-edge text-ink md:hidden">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
@@ -94,12 +38,12 @@
   </nav>
   <div id="mobile-menu" class="hidden border-t border-edge bg-bg px-6 pb-6 md:hidden">
     <div class="flex flex-col gap-4 pt-4">
-      <a href="#leistungen" class="text-sm text-mute hover:text-ink">Leistungen</a>
-      <a href="#beispiele" class="text-sm text-mute hover:text-ink">Beispiele</a>
-      <a href="#ablauf" class="text-sm text-mute hover:text-ink">Ablauf</a>
-      <a href="#preise" class="text-sm text-mute hover:text-ink">Preise</a>
-      <a href="#faq" class="text-sm text-mute hover:text-ink">FAQ</a>
-      <a href="#kontakt" class="mt-2 rounded-full bg-amber px-5 py-2.5 text-center font-mono text-xs font-medium uppercase tracking-wide text-bg">Erstgespräch buchen</a>
+      <a href="#leistungen" class="text-sm text-mute hover:text-ink" data-key="nav.leistungen"></a>
+      <a href="#beispiele" class="text-sm text-mute hover:text-ink" data-key="nav.beispiele"></a>
+      <a href="#ablauf" class="text-sm text-mute hover:text-ink" data-key="nav.ablauf"></a>
+      <a href="#preise" class="text-sm text-mute hover:text-ink" data-key="nav.preise"></a>
+      <a href="#faq" class="text-sm text-mute hover:text-ink" data-key="nav.faq"></a>
+      <a href="#kontakt" data-cta="primary" class="mt-2 rounded-full bg-amber px-5 py-2.5 text-center font-mono text-xs font-medium uppercase tracking-wide text-bg" data-key="nav.cta"></a>
     </div>
   </div>
 </header>
@@ -107,90 +51,33 @@
 <!-- ============ HERO ============ -->
 <section id="top" class="relative overflow-hidden border-b border-edge">
   <div class="mx-auto max-w-7xl px-6 pb-20 pt-16 sm:pt-24">
-    <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal">
-      Podcast-Editing · für Coaches, Berater &amp; Selbstständige
-    </p>
-
-    <h1 class="mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-6xl">
-      Jede Aufnahme hat<br class="hidden sm:block"> tote Sekunden.
-      <span class="text-mute">Wir schneiden sie raus.</span>
-    </h1>
-
-    <p class="mt-6 max-w-xl text-base leading-relaxed text-mute sm:text-lg">
-      Du nimmst dein Gespräch, dein Interview oder deine Solo-Folge auf.
-      Ich mache daraus eine Episode, die aufgeräumt klingt, richtig laut ist
-      und pünktlich in deinem Feed landet — Woche für Woche.
-    </p>
+    <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal" data-key="hero.eyebrow"></p>
+    <h1 class="mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-6xl" data-key="hero.headline"></h1>
+    <p class="mt-6 max-w-xl text-base leading-relaxed text-mute sm:text-lg" data-key="hero.sub"></p>
 
     <div class="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
-      <a href="#kontakt" class="inline-flex items-center justify-center rounded-full bg-amber px-7 py-3.5 font-medium text-bg transition hover:bg-amber/90">
-        Kostenloses Erstgespräch buchen
-      </a>
+      <a href="#kontakt" data-cta="primary" class="inline-flex items-center justify-center rounded-full bg-amber px-7 py-3.5 font-medium text-bg transition hover:bg-amber/90" data-key="hero.ctaPrimary"></a>
       <a href="#beispiele" class="inline-flex items-center justify-center gap-2 rounded-full border border-edge px-7 py-3.5 font-medium text-ink transition hover:border-mute">
-        Beispiele anhören
+        <span data-key="hero.ctaSecondary"></span>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
       </a>
     </div>
 
-    <p class="mt-5 font-mono text-xs text-mute">
-      15–20&nbsp;Min. · unverbindlich · keine Vertragsbindung danach
-    </p>
+    <p class="mt-5 font-mono text-xs text-mute" data-key="hero.microtrust"></p>
   </div>
 
-  <!-- ambient waveform strip -->
   <div class="hero-amb relative h-20 w-full overflow-hidden border-t border-edge/70 bg-bgsoft" aria-hidden="true">
     <div id="hero-amb-track" class="flex h-full w-full items-end gap-[3px] px-2"></div>
     <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-bg via-transparent to-bg"></div>
   </div>
 </section>
 
-<!-- ============ NUTZENARGUMENTE ============ -->
+<!-- ============ NUTZEN ============ -->
 <section id="nutzen" class="border-b border-edge bg-bg">
   <div class="mx-auto max-w-7xl px-6 py-24 sm:py-28">
-    <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal">Warum auslagern</p>
-    <h2 class="mt-4 max-w-xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-      Du bringst die Stimme. Ich bring die Folge fertig.
-    </h2>
-
-    <div class="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-
-      <div class="card-hover rounded-2xl border border-edge bg-surface p-6">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 text-teal" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-        <h3 class="mt-4 font-display text-lg font-medium">Zeit zurück</h3>
-        <p class="mt-2 text-sm leading-relaxed text-mute">Kein Wochenende mehr vor der Audiospur. Du nimmst auf, den Rest erledige ich.</p>
-      </div>
-
-      <div class="card-hover rounded-2xl border border-edge bg-surface p-6">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 text-teal" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h2l1.5-6 3 12 2-9 1.5 5H18"/></svg>
-        <h3 class="mt-4 font-display text-lg font-medium">Klingt professionell</h3>
-        <p class="mt-2 text-sm leading-relaxed text-mute">Sauberer, druckvoller Klang — auf Kopfhörern genauso wie im Auto.</p>
-      </div>
-
-      <div class="card-hover rounded-2xl border border-edge bg-surface p-6">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 text-teal" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><line x1="8" y1="7" x2="19" y2="17"/><line x1="8" y1="17" x2="19" y2="7"/></svg>
-        <h3 class="mt-4 font-display text-lg font-medium">Ohne tote Luft</h3>
-        <p class="mt-2 text-sm leading-relaxed text-mute">Denkpausen, Versprecher und Ähs verschwinden, ohne dass man den Schnitt hört.</p>
-      </div>
-
-      <div class="card-hover rounded-2xl border border-edge bg-surface p-6">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 text-teal" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg>
-        <h3 class="mt-4 font-display text-lg font-medium">Planbar</h3>
-        <p class="mt-2 text-sm leading-relaxed text-mute">Feste Bearbeitungszeit und feste Abgabe. Dein Redaktionsplan bleibt stabil.</p>
-      </div>
-
-      <div class="card-hover rounded-2xl border border-edge bg-surface p-6">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 text-teal" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="4" x2="6" y2="20"/><circle cx="6" cy="9" r="2"/><line x1="12" y1="4" x2="12" y2="20"/><circle cx="12" cy="15" r="2"/><line x1="18" y1="4" x2="18" y2="20"/><circle cx="18" cy="7" r="2"/></svg>
-        <h3 class="mt-4 font-display text-lg font-medium">Zu deinem Format passend</h3>
-        <p class="mt-2 text-sm leading-relaxed text-mute">Solo-Folge, Interview oder Rückblick: Der Schnitt folgt deinem Stil, nicht einem Standardmuster.</p>
-      </div>
-
-      <div class="card-hover rounded-2xl border border-edge bg-surface p-6">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 text-teal" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg>
-        <h3 class="mt-4 font-display text-lg font-medium">Ein fester Ansprechpartner</h3>
-        <p class="mt-2 text-sm leading-relaxed text-mute">Kein wechselnder Freelancer-Pool. Du schreibst mir, ich antworte.</p>
-      </div>
-
-    </div>
+    <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal" data-key="nutzen.eyebrow"></p>
+    <h2 class="mt-4 max-w-xl font-display text-3xl font-semibold tracking-tight sm:text-4xl" data-key="nutzen.heading"></h2>
+    <div id="nutzen-grid" class="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
   </div>
 </section>
 
@@ -198,445 +85,79 @@
 <section id="ueber" class="border-b border-edge bg-bgsoft">
   <div class="mx-auto grid max-w-7xl grid-cols-1 gap-14 px-6 py-24 sm:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
     <div>
-      <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal">Warum mit mir</p>
-      <h2 class="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-        Kein Agentur-Fließband. Eine feste Person, die deinen Podcast kennt.
-      </h2>
+      <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal" data-key="ueber.eyebrow"></p>
+      <h2 class="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-4xl" data-key="ueber.heading"></h2>
       <div class="mt-6 space-y-4 text-base leading-relaxed text-mute">
-        <p>
-          Ich schneide nicht nebenbei 40 Podcasts gleichzeitig. Ich arbeite bewusst nur mit
-          einer kleinen Zahl an Kund:innen — damit jede Folge die Aufmerksamkeit bekommt,
-          die sie braucht, und Rückmeldungen wirklich schnell umgesetzt werden.
-        </p>
-        <p>
-          Mein Fokus liegt auf Coaches, Berater:innen und Selbstständigen, deren Podcast ein
-          Aushängeschild ihres Business ist — nicht nur ein Hobby-Projekt nebenbei. Entsprechend
-          diskret behandle ich alles, was in deinen Rohaufnahmen zu hören ist.
-        </p>
-        <p>
-          Du bekommst keine Weiterleitung an wechselnde Freelancer, sondern eine Person, die
-          nach der zweiten oder dritten Folge genau weiß, wie deine Show klingen soll.
-        </p>
+        <p data-key="ueber.p1"></p>
+        <p data-key="ueber.p2"></p>
+        <p data-key="ueber.p3"></p>
       </div>
     </div>
 
     <div class="rounded-2xl border border-edge bg-surface p-6 sm:p-8">
-      <p class="font-mono text-xs uppercase tracking-[0.2em] text-mute">Auf einen Blick</p>
-      <div class="mt-6 space-y-6">
-        <div>
-          <div class="flex items-baseline justify-between">
-            <span class="font-display text-3xl font-semibold text-ink">6+ Jahre</span>
-            <span class="font-mono text-xs text-mute">Erfahrung</span>
-          </div>
-          <div class="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-edge">
-            <div class="h-full w-[78%] rounded-full bg-teal"></div>
-          </div>
-          <p class="mt-2 text-sm text-mute">Audio-Bearbeitung für Interviews, Solo-Formate &amp; Business-Podcasts.</p>
-        </div>
-        <div>
-          <div class="flex items-baseline justify-between">
-            <span class="font-display text-3xl font-semibold text-ink">max. 6</span>
-            <span class="font-mono text-xs text-mute">Kapazität</span>
-          </div>
-          <div class="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-edge">
-            <div class="h-full w-[55%] rounded-full bg-teal"></div>
-          </div>
-          <p class="mt-2 text-sm text-mute">Podcasts gleichzeitig betreut — für gleichbleibende Qualität.</p>
-        </div>
-        <div>
-          <div class="flex items-baseline justify-between">
-            <span class="font-display text-3xl font-semibold text-ink">&lt; 24 Std.</span>
-            <span class="font-mono text-xs text-mute">Reaktion</span>
-          </div>
-          <div class="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-edge">
-            <div class="h-full w-[90%] rounded-full bg-teal"></div>
-          </div>
-          <p class="mt-2 text-sm text-mute">Typische Antwortzeit an Werktagen auf Nachrichten.</p>
-        </div>
-      </div>
+      <p class="font-mono text-xs uppercase tracking-[0.2em] text-mute" data-key="ueber.statsLabel"></p>
+      <div id="ueber-stats" class="mt-6 space-y-6"></div>
     </div>
   </div>
 </section>
 
-<!-- ============ VORHER / NACHHER ============ -->
+<!-- ============ BEISPIELE ============ -->
 <section id="beispiele" class="border-b border-edge bg-bg">
   <div class="mx-auto max-w-7xl px-6 py-24 sm:py-28">
-    <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal">Rein gehört</p>
-    <h2 class="mt-4 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-      Hör den Unterschied, bevor du dich entscheidest
-    </h2>
-    <p class="mt-4 max-w-2xl text-base leading-relaxed text-mute">
-      Drei typische Probleme aus Rohaufnahmen — als synthetische Klangdemo nachgebaut, um die
-      Wirkung von Rauschunterdrückung, Schnitt und Mastering direkt hörbar zu machen. Deine
-      echte Testfolge bekommst du im kostenlosen Erstgespräch.
-    </p>
-
-    <div id="examples" class="mt-14 space-y-6">
-      <!-- Example cards are injected identically in markup below (static HTML, JS only fills bars/audio) -->
-
-      <div class="rounded-2xl border border-edge bg-surface p-6 sm:p-8">
-        <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-          <div>
-            <h3 class="font-display text-xl font-medium">Interview mit Raumhall &amp; Grundrauschen</h3>
-            <p class="mt-1 text-sm text-mute">Laptop-Lüfter, Zoom-Artefakte, Hall aus dem Wohnzimmer.</p>
-          </div>
-          <span id="ex0-badge" class="mt-2 inline-flex w-fit items-center rounded-full border border-teal/40 bg-teal/10 px-3 py-1 font-mono text-xs text-teal sm:mt-0">—</span>
-        </div>
-
-        <div class="mt-6 space-y-4">
-          <div class="flex items-center gap-4">
-            <button data-play="0:vorher" class="play-btn flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-edge text-mute hover:border-mute hover:text-ink">
-              <svg data-icon="play" class="h-3.5 w-3.5 translate-x-[1px]" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg>
-              <svg data-icon="stop" class="hidden h-3 w-3" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>
-            </button>
-            <div class="w-16 font-mono text-xs uppercase tracking-wide text-mute">Vorher</div>
-            <div id="ex0-vorher-bars" class="relative h-12 flex-1 overflow-hidden rounded-lg bg-bgsoft"></div>
-            <div id="ex0-vorher-dur" class="w-14 flex-shrink-0 text-right font-mono text-xs text-mute">—</div>
-          </div>
-          <div class="flex items-center gap-4">
-            <button data-play="0:nachher" class="play-btn flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-teal/50 text-teal hover:bg-teal/10">
-              <svg data-icon="play" class="h-3.5 w-3.5 translate-x-[1px]" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg>
-              <svg data-icon="stop" class="hidden h-3 w-3" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>
-            </button>
-            <div class="w-16 font-mono text-xs uppercase tracking-wide text-teal">Nachher</div>
-            <div id="ex0-nachher-bars" class="relative h-12 flex-1 overflow-hidden rounded-lg bg-bgsoft"></div>
-            <div id="ex0-nachher-dur" class="w-14 flex-shrink-0 text-right font-mono text-xs text-mute">—</div>
-          </div>
-        </div>
-        <p class="mt-4 font-mono text-[11px] text-mute/70">Klangbeispiel synthetisch erzeugt — veranschaulicht den Effekt der Bearbeitung.</p>
-      </div>
-
-      <div class="rounded-2xl border border-edge bg-surface p-6 sm:p-8">
-        <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-          <div>
-            <h3 class="font-display text-xl font-medium">Solo-Folge voller Denkpausen</h3>
-            <p class="mt-1 text-sm text-mute">Lange „Ähm“-Pausen zwischen den Gedanken.</p>
-          </div>
-          <span id="ex1-badge" class="mt-2 inline-flex w-fit items-center rounded-full border border-teal/40 bg-teal/10 px-3 py-1 font-mono text-xs text-teal sm:mt-0">—</span>
-        </div>
-
-        <div class="mt-6 space-y-4">
-          <div class="flex items-center gap-4">
-            <button data-play="1:vorher" class="play-btn flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-edge text-mute hover:border-mute hover:text-ink">
-              <svg data-icon="play" class="h-3.5 w-3.5 translate-x-[1px]" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg>
-              <svg data-icon="stop" class="hidden h-3 w-3" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>
-            </button>
-            <div class="w-16 font-mono text-xs uppercase tracking-wide text-mute">Vorher</div>
-            <div id="ex1-vorher-bars" class="relative h-12 flex-1 overflow-hidden rounded-lg bg-bgsoft"></div>
-            <div id="ex1-vorher-dur" class="w-14 flex-shrink-0 text-right font-mono text-xs text-mute">—</div>
-          </div>
-          <div class="flex items-center gap-4">
-            <button data-play="1:nachher" class="play-btn flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-teal/50 text-teal hover:bg-teal/10">
-              <svg data-icon="play" class="h-3.5 w-3.5 translate-x-[1px]" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg>
-              <svg data-icon="stop" class="hidden h-3 w-3" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>
-            </button>
-            <div class="w-16 font-mono text-xs uppercase tracking-wide text-teal">Nachher</div>
-            <div id="ex1-nachher-bars" class="relative h-12 flex-1 overflow-hidden rounded-lg bg-bgsoft"></div>
-            <div id="ex1-nachher-dur" class="w-14 flex-shrink-0 text-right font-mono text-xs text-mute">—</div>
-          </div>
-        </div>
-        <p class="mt-4 font-mono text-[11px] text-mute/70">Klangbeispiel synthetisch erzeugt — veranschaulicht den Effekt der Bearbeitung.</p>
-      </div>
-
-      <div class="rounded-2xl border border-edge bg-surface p-6 sm:p-8">
-        <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-          <div>
-            <h3 class="font-display text-xl font-medium">Leise &amp; dumpfe Aufnahme</h3>
-            <p class="mt-1 text-sm text-mute">Zu weit vom Mikro, keine Lautheitsnormalisierung.</p>
-          </div>
-          <span id="ex2-badge" class="mt-2 inline-flex w-fit items-center rounded-full border border-teal/40 bg-teal/10 px-3 py-1 font-mono text-xs text-teal sm:mt-0">—</span>
-        </div>
-
-        <div class="mt-6 space-y-4">
-          <div class="flex items-center gap-4">
-            <button data-play="2:vorher" class="play-btn flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-edge text-mute hover:border-mute hover:text-ink">
-              <svg data-icon="play" class="h-3.5 w-3.5 translate-x-[1px]" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg>
-              <svg data-icon="stop" class="hidden h-3 w-3" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>
-            </button>
-            <div class="w-16 font-mono text-xs uppercase tracking-wide text-mute">Vorher</div>
-            <div id="ex2-vorher-bars" class="relative h-12 flex-1 overflow-hidden rounded-lg bg-bgsoft"></div>
-            <div id="ex2-vorher-dur" class="w-14 flex-shrink-0 text-right font-mono text-xs text-mute">—</div>
-          </div>
-          <div class="flex items-center gap-4">
-            <button data-play="2:nachher" class="play-btn flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-teal/50 text-teal hover:bg-teal/10">
-              <svg data-icon="play" class="h-3.5 w-3.5 translate-x-[1px]" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg>
-              <svg data-icon="stop" class="hidden h-3 w-3" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>
-            </button>
-            <div class="w-16 font-mono text-xs uppercase tracking-wide text-teal">Nachher</div>
-            <div id="ex2-nachher-bars" class="relative h-12 flex-1 overflow-hidden rounded-lg bg-bgsoft"></div>
-            <div id="ex2-nachher-dur" class="w-14 flex-shrink-0 text-right font-mono text-xs text-mute">—</div>
-          </div>
-        </div>
-        <p class="mt-4 font-mono text-[11px] text-mute/70">Klangbeispiel synthetisch erzeugt — veranschaulicht den Effekt der Bearbeitung.</p>
-      </div>
-    </div>
+    <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal" data-key="beispiele.eyebrow"></p>
+    <h2 class="mt-4 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl" data-key="beispiele.heading"></h2>
+    <p class="mt-4 max-w-2xl text-base leading-relaxed text-mute" data-key="beispiele.intro"></p>
+    <div id="examples-list" class="mt-14 space-y-6"></div>
   </div>
 </section>
 
 <!-- ============ ABLAUF ============ -->
 <section id="ablauf" class="border-b border-edge bg-bgsoft">
   <div class="mx-auto max-w-7xl px-6 py-24 sm:py-28">
-    <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal">So läuft es ab</p>
-    <h2 class="mt-4 max-w-xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-      Vom Rohmaterial zur fertigen Folge in drei Schritten
-    </h2>
-
-    <div class="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-3">
-      <div class="relative rounded-2xl border border-edge bg-surface p-7">
-        <span class="font-mono text-sm text-amber">00:01</span>
-        <h3 class="mt-3 font-display text-lg font-medium">Erstgespräch</h3>
-        <p class="mt-2 text-sm leading-relaxed text-mute">
-          15–20 Minuten, in denen ich dein Format, deine Ziele und den Umfang deiner Folgen
-          kennenlerne. Unverbindlich und kostenlos.
-        </p>
-      </div>
-      <div class="relative rounded-2xl border border-edge bg-surface p-7">
-        <span class="font-mono text-sm text-amber">00:02</span>
-        <h3 class="mt-3 font-display text-lg font-medium">Testfolge</h3>
-        <p class="mt-2 text-sm leading-relaxed text-mute">
-          Du schickst mir eine Rohaufnahme, ich liefere eine bearbeitete Probefolge zurück.
-          Du hörst den Unterschied, bevor irgendetwas fix ist.
-        </p>
-      </div>
-      <div class="relative rounded-2xl border border-edge bg-surface p-7">
-        <span class="font-mono text-sm text-amber">00:03</span>
-        <h3 class="mt-3 font-display text-lg font-medium">Laufender Betrieb</h3>
-        <p class="mt-2 text-sm leading-relaxed text-mute">
-          Feste Abgabetermine, ein klarer Ablage-Workflow. Du lädst hoch, ich liefere die
-          sendefertige Folge.
-        </p>
-      </div>
-    </div>
+    <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal" data-key="ablauf.eyebrow"></p>
+    <h2 class="mt-4 max-w-xl font-display text-3xl font-semibold tracking-tight sm:text-4xl" data-key="ablauf.heading"></h2>
+    <div id="ablauf-grid" class="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-3"></div>
   </div>
 </section>
 
 <!-- ============ LEISTUNGEN ============ -->
 <section id="leistungen" class="border-b border-edge bg-bg">
   <div class="mx-auto max-w-7xl px-6 py-24 sm:py-28">
-    <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal">Leistungen</p>
-    <h2 class="mt-4 max-w-xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-      Was in jeder Folge steckt
-    </h2>
-
-    <div class="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-edge bg-edge sm:grid-cols-2 lg:grid-cols-3">
-
-      <div class="bg-surface p-7">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 text-amber" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><line x1="8" y1="7" x2="19" y2="17"/><line x1="8" y1="17" x2="19" y2="7"/></svg>
-        <h3 class="mt-4 font-display text-base font-medium">Schnitt &amp; Feinschnitt</h3>
-        <p class="mt-2 text-sm leading-relaxed text-mute">Versprecher, Wiederholungen und Denkpausen raus — ohne dass der Redefluss verloren geht.</p>
-      </div>
-
-      <div class="bg-surface p-7">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 text-amber" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/></svg>
-        <h3 class="mt-4 font-display text-base font-medium">Audio-Restauration</h3>
-        <p class="mt-2 text-sm leading-relaxed text-mute">Rauschunterdrückung, Klick- und Popfilter, Reduktion von Raumhall und Echo.</p>
-      </div>
-
-      <div class="bg-surface p-7">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 text-amber" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><line x1="12" y1="12" x2="12" y2="6"/></svg>
-        <h3 class="mt-4 font-display text-base font-medium">Mixing &amp; Mastering</h3>
-        <p class="mt-2 text-sm leading-relaxed text-mute">Lautheitsnormalisierung nach Sendestandard, EQ und Kompression für konstante Lautstärke.</p>
-      </div>
-
-      <div class="bg-surface p-7">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 text-amber" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-        <h3 class="mt-4 font-display text-base font-medium">Intro, Outro &amp; Sounddesign</h3>
-        <p class="mt-2 text-sm leading-relaxed text-mute">Einbindung deiner Jingles, saubere Übergänge, optionale Musikbetten.</p>
-      </div>
-
-      <div class="bg-surface p-7">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 text-amber" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12v16l-6-4-6 4V4z"/></svg>
-        <h3 class="mt-4 font-display text-base font-medium">Kapitelmarken &amp; Shownotes</h3>
-        <p class="mt-2 text-sm leading-relaxed text-mute">Timecodes, kurze Zusammenfassung und Titel-Vorschläge für jede Folge.</p>
-      </div>
-
-      <div class="bg-surface p-7">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 text-amber" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"/><path d="M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
-        <h3 class="mt-4 font-display text-base font-medium">Multi-Plattform-Export</h3>
-        <p class="mt-2 text-sm leading-relaxed text-mute">Passende Formate für Spotify, Apple Podcasts, YouTube &amp; Co.</p>
-      </div>
-
-    </div>
+    <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal" data-key="leistungen.eyebrow"></p>
+    <h2 class="mt-4 max-w-xl font-display text-3xl font-semibold tracking-tight sm:text-4xl" data-key="leistungen.heading"></h2>
+    <div id="leistungen-grid" class="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-edge bg-edge sm:grid-cols-2 lg:grid-cols-3"></div>
   </div>
 </section>
 
 <!-- ============ PREISE ============ -->
 <section id="preise" class="border-b border-edge bg-bgsoft">
   <div class="mx-auto max-w-7xl px-6 py-24 sm:py-28">
-    <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal">Preise</p>
-    <h2 class="mt-4 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-      Kein Baukasten. Ein Angebot, das zu deiner Folge passt.
-    </h2>
-    <p class="mt-4 max-w-2xl text-base leading-relaxed text-mute">
-      Jede Folge ist unterschiedlich lang, unterschiedlich aufwendig und unterschiedlich wichtig
-      für dein Business. Deshalb findest du hier keine Tabelle mit Fixpreisen, sondern drei
-      Richtungen — das genaue Angebot besprechen wir im Erstgespräch, auf Basis von Folgenlänge,
-      Rohmaterial-Qualität und gewünschtem Umfang.
-    </p>
+    <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal" data-key="preise.eyebrow"></p>
+    <h2 class="mt-4 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl" data-key="preise.heading"></h2>
 
-    <div class="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
+    <div class="mt-6 max-w-2xl rounded-xl border border-teal/30 bg-teal/5 px-5 py-4 text-sm leading-relaxed text-ink" data-key="preise.riskBanner"></div>
 
-      <div class="flex flex-col rounded-2xl border border-edge bg-surface p-7">
-        <div class="flex items-start justify-between">
-          <div>
-            <h3 class="font-display text-xl font-medium">Starter</h3>
-            <p class="mt-1 text-sm text-mute">Für den Einstieg oder unregelmäßige Folgen.</p>
-          </div>
-          <div class="h-16 w-1.5 flex-shrink-0 overflow-hidden rounded-full bg-edge">
-            <div class="w-full bg-mute" style="height:40%;margin-top:60%"></div>
-          </div>
-        </div>
-        <ul class="mt-6 flex-1 space-y-3 text-sm text-mute">
-          <li class="flex gap-2"><span class="text-teal">✓</span>Schnitt &amp; Feinschnitt</li>
-          <li class="flex gap-2"><span class="text-teal">✓</span>Basis-Restauration</li>
-          <li class="flex gap-2"><span class="text-teal">✓</span>Lautheitsnormalisierung</li>
-          <li class="flex gap-2"><span class="text-teal">✓</span>1 Korrekturschleife</li>
-        </ul>
-        <div class="mt-8 border-t border-edge pt-6">
-          <p class="font-display text-lg font-medium">Individuelles Angebot</p>
-          <p class="font-mono text-xs text-mute">auf Basis deiner Folgenlänge</p>
-          <a href="#kontakt" class="mt-4 block rounded-full border border-edge px-5 py-3 text-center text-sm font-medium transition hover:border-mute">Angebot besprechen</a>
-        </div>
-      </div>
-
-      <div class="relative flex flex-col rounded-2xl border-2 border-amber bg-surface p-7">
-        <span class="absolute -top-3 left-7 rounded-full bg-amber px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-wide text-bg">Meistgewählt</span>
-        <div class="flex items-start justify-between">
-          <div>
-            <h3 class="font-display text-xl font-medium">Pro</h3>
-            <p class="mt-1 text-sm text-mute">Für Podcasts mit festem Rhythmus.</p>
-          </div>
-          <div class="h-16 w-1.5 flex-shrink-0 overflow-hidden rounded-full bg-edge">
-            <div class="w-full bg-amber" style="height:70%;margin-top:30%"></div>
-          </div>
-        </div>
-        <ul class="mt-6 flex-1 space-y-3 text-sm text-mute">
-          <li class="flex gap-2"><span class="text-teal">✓</span>Alles aus Starter</li>
-          <li class="flex gap-2"><span class="text-teal">✓</span>Vollständige Restauration &amp; Mastering</li>
-          <li class="flex gap-2"><span class="text-teal">✓</span>Kapitelmarken &amp; Shownotes</li>
-          <li class="flex gap-2"><span class="text-teal">✓</span>Priorisierte Bearbeitungszeit</li>
-          <li class="flex gap-2"><span class="text-teal">✓</span>2 Korrekturschleifen</li>
-        </ul>
-        <div class="mt-8 border-t border-edge pt-6">
-          <p class="font-display text-lg font-medium">Individuelles Angebot</p>
-          <p class="font-mono text-xs text-mute">auf Basis deiner Folgenlänge</p>
-          <a href="#kontakt" class="mt-4 block rounded-full bg-amber px-5 py-3 text-center text-sm font-medium text-bg transition hover:bg-amber/90">Angebot besprechen</a>
-        </div>
-      </div>
-
-      <div class="flex flex-col rounded-2xl border border-edge bg-surface p-7">
-        <div class="flex items-start justify-between">
-          <div>
-            <h3 class="font-display text-xl font-medium">Studio</h3>
-            <p class="mt-1 text-sm text-mute">Für Marken, Teams und hohe Ansprüche.</p>
-          </div>
-          <div class="h-16 w-1.5 flex-shrink-0 overflow-hidden rounded-full bg-edge">
-            <div class="w-full bg-teal" style="height:95%;margin-top:5%"></div>
-          </div>
-        </div>
-        <ul class="mt-6 flex-1 space-y-3 text-sm text-mute">
-          <li class="flex gap-2"><span class="text-teal">✓</span>Alles aus Pro</li>
-          <li class="flex gap-2"><span class="text-teal">✓</span>Sounddesign &amp; Musikbetten</li>
-          <li class="flex gap-2"><span class="text-teal">✓</span>Multi-Format-Export für alle Plattformen</li>
-          <li class="flex gap-2"><span class="text-teal">✓</span>Kapazitätsgarantie</li>
-          <li class="flex gap-2"><span class="text-teal">✓</span>Individuelle Korrekturschleifen</li>
-        </ul>
-        <div class="mt-8 border-t border-edge pt-6">
-          <p class="font-display text-lg font-medium">Individuelles Angebot</p>
-          <p class="font-mono text-xs text-mute">auf Basis deiner Folgenlänge</p>
-          <a href="#kontakt" class="mt-4 block rounded-full border border-edge px-5 py-3 text-center text-sm font-medium transition hover:border-mute">Angebot besprechen</a>
-        </div>
-      </div>
-
-    </div>
+    <div id="preise-grid" class="mx-auto mt-14 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2"></div>
   </div>
 </section>
 
 <!-- ============ FAQ ============ -->
 <section id="faq" class="border-b border-edge bg-bg">
   <div class="mx-auto max-w-4xl px-6 py-24 sm:py-28">
-    <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal">Fragen &amp; Antworten</p>
-    <h2 class="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-      Bevor du schreibst, vielleicht schon beantwortet
-    </h2>
-
-    <div class="mt-12 divide-y divide-edge border-y border-edge">
-
-      <details class="group py-5">
-        <summary class="flex items-center justify-between gap-4">
-          <span class="font-display text-base font-medium">Wie schnell bekomme ich meine Folge zurück?</span>
-          <span class="faq-chevron-bg flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-edge text-mute"><span class="faq-icon">＋</span></span>
-        </summary>
-        <p class="mt-3 max-w-2xl text-sm leading-relaxed text-mute">Für die meisten wöchentlichen Formate liegt die Bearbeitungszeit bei wenigen Werktagen. Der genaue Rahmen wird im Erstgespräch festgelegt und richtet sich nach Folgenlänge und gewähltem Paket.</p>
-      </details>
-
-      <details class="group py-5">
-        <summary class="flex items-center justify-between gap-4">
-          <span class="font-display text-base font-medium">Muss ich mich langfristig binden?</span>
-          <span class="faq-chevron-bg flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-edge text-mute"><span class="faq-icon">＋</span></span>
-        </summary>
-        <p class="mt-3 max-w-2xl text-sm leading-relaxed text-mute">Nein. Wir starten mit einer Testfolge, danach entscheidest du von Monat zu Monat, ob es weitergeht. Keine Mindestlaufzeit, keine versteckte Kündigungsfrist.</p>
-      </details>
-
-      <details class="group py-5">
-        <summary class="flex items-center justify-between gap-4">
-          <span class="font-display text-base font-medium">Was, wenn mir das Ergebnis nicht gefällt?</span>
-          <span class="faq-chevron-bg flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-edge text-mute"><span class="faq-icon">＋</span></span>
-        </summary>
-        <p class="mt-3 max-w-2xl text-sm leading-relaxed text-mute">Jedes Paket enthält Korrekturschleifen. Du bekommst konkrete Anmerkungen ein, ich passe die Folge an — erst wenn sie zu deiner Show passt, gilt sie als fertig.</p>
-      </details>
-
-      <details class="group py-5">
-        <summary class="flex items-center justify-between gap-4">
-          <span class="font-display text-base font-medium">Welche Dateiformate brauchst du von mir?</span>
-          <span class="faq-chevron-bg flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-edge text-mute"><span class="faq-icon">＋</span></span>
-        </summary>
-        <p class="mt-3 max-w-2xl text-sm leading-relaxed text-mute">Am liebsten unkomprimiertes WAV, idealerweise als Einzelspuren pro Sprecher. Aufnahmen aus Zoom, Riverside oder direkt vom Aufnahmegerät funktionieren aber ebenso — wir klären das im Erstgespräch.</p>
-      </details>
-
-      <details class="group py-5">
-        <summary class="flex items-center justify-between gap-4">
-          <span class="font-display text-base font-medium">Bearbeitest du auch Video-Podcasts?</span>
-          <span class="faq-chevron-bg flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-edge text-mute"><span class="faq-icon">＋</span></span>
-        </summary>
-        <p class="mt-3 max-w-2xl text-sm leading-relaxed text-mute">Der Fokus liegt auf Audio. Bei Bedarf spreche ich mich mit deiner Videoschnitt-Person ab, damit Schnittpunkte in Ton und Bild zusammenpassen.</p>
-      </details>
-
-      <details class="group py-5">
-        <summary class="flex items-center justify-between gap-4">
-          <span class="font-display text-base font-medium">Wie läuft die Kommunikation ab?</span>
-          <span class="faq-chevron-bg flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-edge text-mute"><span class="faq-icon">＋</span></span>
-        </summary>
-        <p class="mt-3 max-w-2xl text-sm leading-relaxed text-mute">Direkt per E-Mail oder Chat, ohne Ticketsystem und ohne wechselnde Ansprechpersonen. Dateien tauschen wir über einen gemeinsamen Cloud-Ordner aus.</p>
-      </details>
-
-      <details class="group py-5">
-        <summary class="flex items-center justify-between gap-4">
-          <span class="font-display text-base font-medium">Was kostet die Bearbeitung?</span>
-          <span class="faq-chevron-bg flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-edge text-mute"><span class="faq-icon">＋</span></span>
-        </summary>
-        <p class="mt-3 max-w-2xl text-sm leading-relaxed text-mute">Das hängt von Folgenlänge, Rohmaterial-Qualität und gewünschtem Umfang ab. Im Erstgespräch bekommst du ein konkretes, auf deine Show zugeschnittenes Angebot — unverbindlich.</p>
-      </details>
-
-    </div>
+    <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal" data-key="faq.eyebrow"></p>
+    <h2 class="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-4xl" data-key="faq.heading"></h2>
+    <div id="faq-list" class="mt-12 divide-y divide-edge border-y border-edge"></div>
   </div>
 </section>
 
 <!-- ============ FINAL CTA ============ -->
 <section id="kontakt" class="relative overflow-hidden border-b border-edge bg-bgsoft">
   <div class="mx-auto max-w-3xl px-6 py-24 text-center sm:py-32">
-    <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal">Kostenloses Erstgespräch</p>
-    <h2 class="mt-5 font-display text-3xl font-semibold tracking-tight sm:text-5xl">
-      Bereit für Folgen, die nach dir klingen — nicht nach Rohmaterial?
-    </h2>
-    <p class="mx-auto mt-5 max-w-xl text-base leading-relaxed text-mute">
-      Buch dir ein kostenloses, unverbindliches Erstgespräch. 15–20 Minuten, in denen wir klären,
-      ob und wie ich dir helfen kann.
-    </p>
-    <a href="mailto:hallo@schnittstelle.de?subject=Kostenloses%20Erstgespr%C3%A4ch&body=Hi%2C%20ich%20h%C3%A4tte%20gerne%20ein%20kostenloses%20Erstgespr%C3%A4ch%20zu%20meinem%20Podcast." class="mt-9 inline-flex items-center justify-center rounded-full bg-amber px-8 py-4 font-medium text-bg transition hover:bg-amber/90">
-      Kostenloses Erstgespräch buchen
-    </a>
-    <p class="mt-4 font-mono text-xs text-mute">Antwort in der Regel innerhalb eines Werktags.</p>
+    <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal" data-key="cta.eyebrow"></p>
+    <h2 class="mt-5 font-display text-3xl font-semibold tracking-tight sm:text-5xl" data-key="cta.heading"></h2>
+    <p class="mx-auto mt-5 max-w-xl text-base leading-relaxed text-mute" data-key="cta.sub"></p>
+    <a href="#kontakt" data-cta="primary" class="mt-9 inline-flex items-center justify-center rounded-full bg-amber px-8 py-4 font-medium text-bg transition hover:bg-amber/90" data-key="cta.button"></a>
+    <p class="mt-4 font-mono text-xs text-mute" data-key="cta.microtrust"></p>
   </div>
 </section>
 
@@ -645,321 +166,35 @@
   <div class="mx-auto max-w-7xl px-6 py-16">
     <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <div class="lg:col-span-2">
-        <a href="#top" class="font-display text-lg font-semibold tracking-tight text-ink">schnitt<span class="text-teal">:</span>stelle</a>
-        <p class="mt-3 max-w-sm text-sm leading-relaxed text-mute">
-          Podcast-Editing für Coaches, Berater:innen und Selbstständige, die kein eigenes
-          Studio aufbauen wollen — sondern eine fertige Folge im Feed.
-        </p>
+        <a href="#top" class="flex items-baseline gap-2">
+          <span class="font-display text-lg font-semibold tracking-tight text-ink">RiDo<span class="text-amber">X</span></span>
+          <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-mute border-l border-edge pl-2">Studio</span>
+        </a>
+        <p class="mt-3 max-w-sm text-sm leading-relaxed text-mute" data-key="footer.tagline"></p>
       </div>
       <div>
-        <p class="font-mono text-xs uppercase tracking-wide text-mute">Navigation</p>
-        <ul class="mt-4 space-y-2 text-sm">
-          <li><a href="#leistungen" class="text-mute hover:text-ink">Leistungen</a></li>
-          <li><a href="#beispiele" class="text-mute hover:text-ink">Beispiele</a></li>
-          <li><a href="#preise" class="text-mute hover:text-ink">Preise</a></li>
-          <li><a href="#faq" class="text-mute hover:text-ink">FAQ</a></li>
-        </ul>
+        <p class="font-mono text-xs uppercase tracking-wide text-mute" data-key="footer.navHeading"></p>
+        <ul id="footer-nav-links" class="mt-4 space-y-2 text-sm"></ul>
       </div>
       <div>
-        <p class="font-mono text-xs uppercase tracking-wide text-mute">Rechtliches</p>
-        <ul class="mt-4 space-y-2 text-sm">
-          <li><a href="#" class="text-mute hover:text-ink">Impressum</a></li>
-          <li><a href="#" class="text-mute hover:text-ink">Datenschutz</a></li>
-        </ul>
+        <p class="font-mono text-xs uppercase tracking-wide text-mute" data-key="footer.legalHeading"></p>
+        <ul id="footer-legal-links" class="mt-4 space-y-2 text-sm"></ul>
       </div>
     </div>
     <div class="mt-14 flex flex-col gap-4 border-t border-edge pt-8 text-xs text-mute sm:flex-row sm:items-center sm:justify-between">
-      <span>© 2026 schnitt:stelle · Alle Rechte vorbehalten.</span>
-      <a href="#kontakt" class="text-ink underline underline-offset-4 hover:text-amber">Kostenloses Erstgespräch buchen</a>
+      <span data-key="footer.copyright"></span>
+      <a href="#kontakt" data-cta="primary" class="text-ink underline underline-offset-4 hover:text-amber" data-key="footer.cta"></a>
     </div>
   </div>
 </footer>
 
-<script>
-(function(){
-  // ---------- Mobile nav ----------
-  var navToggle = document.getElementById('nav-toggle');
-  var mobileMenu = document.getElementById('mobile-menu');
-  navToggle.addEventListener('click', function(){
-    var isHidden = mobileMenu.classList.contains('hidden');
-    mobileMenu.classList.toggle('hidden');
-    navToggle.setAttribute('aria-expanded', String(isHidden));
-  });
-  mobileMenu.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){ mobileMenu.classList.add('hidden'); });
-  });
-
-  // ---------- Ambient hero waveform (decorative) ----------
-  var track = document.getElementById('hero-amb-track');
-  var barCount = 70;
-  for (var i = 0; i < barCount; i++) {
-    var bar = document.createElement('div');
-    var h = 20 + Math.round(60 * Math.abs(Math.sin(i * 0.35) * Math.cos(i * 0.12)));
-    bar.className = 'hero-amb-bar w-[3px] flex-shrink-0 rounded-t-sm bg-edge';
-    bar.style.height = h + '%';
-    bar.style.animationDelay = (i * 0.045) + 's';
-    track.appendChild(bar);
-  }
-
-  // ---------- Audio demo engine ----------
-  var SYLLABLES = [150,95,170,110,140,185,105,155,125,175,95,145,165,115];
-
-  var EXAMPLES = [
-    {
-      metric: 'noise',
-      vorher:  { gapBase:70, longPauseEvery:4, longPauseMs:220, filler:false, noise:0.09,  cutoff:1600, gain:0.50, gainJitter:0.15 },
-      nachher: { gapBase:70, longPauseEvery:4, longPauseMs:220, filler:false, noise:0.006, cutoff:5200, gain:0.75, gainJitter:0.03 }
-    },
-    {
-      metric: 'duration',
-      vorher:  { gapBase:90, longPauseEvery:3, longPauseMs:650, filler:true,  noise:0.015, cutoff:3200, gain:0.65, gainJitter:0.05 },
-      nachher: { gapBase:45, longPauseEvery:0, longPauseMs:0,   filler:false, noise:0.01,  cutoff:3400, gain:0.70, gainJitter:0.03 }
-    },
-    {
-      metric: 'loudness',
-      vorher:  { gapBase:70, longPauseEvery:4, longPauseMs:200, filler:false, noise:0.02, cutoff:1200, gain:0.35, gainJitter:0.25 },
-      nachher: { gapBase:70, longPauseEvery:4, longPauseMs:200, filler:false, noise:0.01, cutoff:6000, gain:0.85, gainJitter:0.02 }
-    }
-  ];
-
-  function buildSchedule(cfg){
-    var t = 0; var events = [];
-    SYLLABLES.forEach(function(dur, i){
-      events.push({ start:t, dur:dur, kind:'voice' });
-      t += dur;
-      var gap = cfg.gapBase;
-      if (cfg.longPauseEvery > 0 && (i % cfg.longPauseEvery === cfg.longPauseEvery - 1)) {
-        gap = cfg.longPauseMs;
-        if (cfg.filler) {
-          events.push({ start:t, dur:Math.round(gap * 0.55), kind:'filler' });
-        }
-      }
-      t += gap;
-    });
-    return { events:events, total:t };
-  }
-
-  function computeBars(schedule, sliceMs){
-    var bars = [];
-    var n = Math.max(1, Math.round(schedule.total / sliceMs));
-    for (var s = 0; s < n; s++) {
-      var t = s * sliceMs;
-      var ev = null;
-      for (var e = 0; e < schedule.events.length; e++) {
-        var cand = schedule.events[e];
-        if (t >= cand.start && t < cand.start + cand.dur) { ev = cand; break; }
-      }
-      if (!ev) { bars.push({ h:6, kind:'gap' }); continue; }
-      if (ev.kind === 'voice') {
-        var local = (t - ev.start) / ev.dur;
-        var h = 28 + 55 * Math.abs(Math.sin((local * Math.PI) + (ev.start * 0.01)));
-        bars.push({ h: Math.round(h), kind:'voice' });
-      } else {
-        bars.push({ h: 22, kind:'filler' });
-      }
-    }
-    return bars;
-  }
-
-  function renderBars(el, bars, scheme){
-    el.innerHTML = '';
-    var wrap = document.createElement('div');
-    wrap.className = 'flex h-full w-full items-end gap-[2px]';
-    bars.forEach(function(b){
-      var d = document.createElement('div');
-      var color = scheme.gap;
-      if (b.kind === 'voice') color = scheme.voice;
-      if (b.kind === 'filler') color = scheme.filler;
-      d.className = 'w-[3px] flex-shrink-0 rounded-sm ' + color;
-      d.style.height = b.h + '%';
-      wrap.appendChild(d);
-    });
-    el.appendChild(wrap);
-    var head = document.createElement('div');
-    head.className = 'playhead absolute top-0 bottom-0 left-0 w-[2px] bg-amber';
-    el.appendChild(head);
-  }
-
-  function fmt(ms){
-    return (ms / 1000).toFixed(1).replace('.', ',') + '\u00A0s';
-  }
-
-  var schemeGrey = { gap:'bg-edge', voice:'bg-mute/70', filler:'bg-coral/70' };
-  var schemeTeal = { gap:'bg-edge', voice:'bg-teal',    filler:'bg-teal' };
-
-  EXAMPLES.forEach(function(ex, i){
-    var schV = buildSchedule(ex.vorher);
-    var schN = buildSchedule(ex.nachher);
-    ex._schV = schV;
-    ex._schN = schN;
-
-    renderBars(document.getElementById('ex' + i + '-vorher-bars'), computeBars(schV, 45), schemeGrey);
-    renderBars(document.getElementById('ex' + i + '-nachher-bars'), computeBars(schN, 45), schemeTeal);
-    document.getElementById('ex' + i + '-vorher-dur').textContent = fmt(schV.total);
-    document.getElementById('ex' + i + '-nachher-dur').textContent = fmt(schN.total);
-
-    var badgeEl = document.getElementById('ex' + i + '-badge');
-    if (ex.metric === 'noise') {
-      var pct = Math.round((1 - ex.nachher.noise / ex.vorher.noise) * 100);
-      badgeEl.textContent = 'Rauschen \u2212' + pct + '%';
-    } else if (ex.metric === 'duration') {
-      var dpct = Math.round((1 - schN.total / schV.total) * 100);
-      badgeEl.textContent = '\u2212' + dpct + '% tote Luft';
-    } else if (ex.metric === 'loudness') {
-      var db = Math.round(20 * Math.log10(ex.nachher.gain / ex.vorher.gain));
-      badgeEl.textContent = '+' + db + ' dB, gleichmäßig';
-    }
-  });
-
-  // ---------- Web Audio playback ----------
-  var audioCtx = null;
-  var noiseBufCache = null;
-  var currentStop = null;
-  var currentTimeout = null;
-
-  function getCtx(){
-    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    if (audioCtx.state === 'suspended') audioCtx.resume();
-    return audioCtx;
-  }
-
-  function getNoiseBuffer(ctx){
-    if (noiseBufCache) return noiseBufCache;
-    var len = ctx.sampleRate * 2;
-    var buf = ctx.createBuffer(1, len, ctx.sampleRate);
-    var data = buf.getChannelData(0);
-    var b0 = 0, b1 = 0, b2 = 0;
-    for (var i = 0; i < len; i++) {
-      var w = Math.random() * 2 - 1;
-      b0 = 0.99 * b0 + w * 0.1;
-      b1 = 0.98 * b1 + w * 0.05;
-      b2 = 0.95 * b2 + w * 0.02;
-      data[i] = (b0 + b1 + b2) * 0.6;
-    }
-    noiseBufCache = buf;
-    return buf;
-  }
-
-  function resetIcons(btn){
-    var p = btn.querySelector('[data-icon="play"]');
-    var s = btn.querySelector('[data-icon="stop"]');
-    if (p) p.classList.remove('hidden');
-    if (s) s.classList.add('hidden');
-  }
-
-  function stopCurrent(){
-    if (currentStop) { try { currentStop(); } catch(e){} currentStop = null; }
-    if (currentTimeout) { clearTimeout(currentTimeout); currentTimeout = null; }
-    document.querySelectorAll('.playhead').forEach(function(p){
-      p.style.transition = 'none';
-      p.style.left = '0%';
-    });
-    document.querySelectorAll('[data-play]').forEach(function(b){
-      b.classList.remove('is-playing');
-      resetIcons(b);
-    });
-  }
-
-  function playExample(idx, variant, btn){
-    var ctx = getCtx();
-    stopCurrent();
-    var ex = EXAMPLES[idx];
-    var cfg = ex[variant];
-    var schedule = variant === 'vorher' ? ex._schV : ex._schN;
-
-    var master = ctx.createGain(); master.gain.value = 0.5;
-    var comp = ctx.createDynamicsCompressor();
-    master.connect(comp); comp.connect(ctx.destination);
-
-    var nodes = [];
-
-    if (cfg.noise > 0) {
-      var src = ctx.createBufferSource();
-      src.buffer = getNoiseBuffer(ctx);
-      src.loop = true;
-      var nfilt = ctx.createBiquadFilter(); nfilt.type = 'lowpass'; nfilt.frequency.value = 900;
-      var ngain = ctx.createGain(); ngain.gain.value = cfg.noise;
-      src.connect(nfilt); nfilt.connect(ngain); ngain.connect(master);
-      var t0 = ctx.currentTime;
-      src.start(t0); src.stop(t0 + schedule.total / 1000 + 0.05);
-      nodes.push(src);
-    }
-
-    schedule.events.forEach(function(ev, i){
-      var startT = ctx.currentTime + ev.start / 1000;
-      var durS = ev.dur / 1000;
-
-      if (ev.kind === 'voice') {
-        var osc = ctx.createOscillator(); osc.type = 'triangle';
-        var pitch = 130 + 40 * Math.sin(i * 1.7) + (i % 3) * 8;
-        osc.frequency.setValueAtTime(pitch, startT);
-        osc.frequency.linearRampToValueAtTime(pitch * 0.9, startT + durS);
-
-        var filt = ctx.createBiquadFilter(); filt.type = 'lowpass'; filt.frequency.value = cfg.cutoff;
-
-        var g = ctx.createGain();
-        var peak = Math.max(0.05, cfg.gain + Math.sin(i * 2.3) * cfg.gainJitter);
-        g.gain.setValueAtTime(0.0001, startT);
-        g.gain.linearRampToValueAtTime(peak, startT + durS * 0.3);
-        g.gain.linearRampToValueAtTime(peak * 0.5, startT + durS * 0.7);
-        g.gain.linearRampToValueAtTime(0.0001, startT + durS);
-
-        osc.connect(filt); filt.connect(g); g.connect(master);
-        osc.start(startT); osc.stop(startT + durS + 0.02);
-        nodes.push(osc);
-      } else if (ev.kind === 'filler') {
-        var fosc = ctx.createOscillator(); fosc.type = 'sawtooth';
-        fosc.frequency.setValueAtTime(115, startT);
-        var lfo = ctx.createOscillator(); lfo.frequency.value = 5;
-        var lfoGain = ctx.createGain(); lfoGain.gain.value = 6;
-        lfo.connect(lfoGain); lfoGain.connect(fosc.frequency);
-
-        var ffilt = ctx.createBiquadFilter(); ffilt.type = 'lowpass'; ffilt.frequency.value = cfg.cutoff * 0.5;
-        var fg = ctx.createGain();
-        fg.gain.setValueAtTime(0.0001, startT);
-        fg.gain.linearRampToValueAtTime(cfg.gain * 0.3, startT + 0.05);
-        fg.gain.linearRampToValueAtTime(0.0001, startT + durS);
-
-        fosc.connect(ffilt); ffilt.connect(fg); fg.connect(master);
-        lfo.start(startT); lfo.stop(startT + durS + 0.02);
-        fosc.start(startT); fosc.stop(startT + durS + 0.02);
-        nodes.push(fosc, lfo);
-      }
-    });
-
-    currentStop = function(){
-      nodes.forEach(function(n){
-        try { n.stop(); } catch(e){}
-        try { n.disconnect(); } catch(e){}
-      });
-      try { master.disconnect(); } catch(e){}
-      try { comp.disconnect(); } catch(e){}
-    };
-
-    var container = document.getElementById('ex' + idx + '-' + variant + '-bars');
-    var head = container.querySelector('.playhead');
-    head.style.transition = 'none';
-    head.style.left = '0%';
-    void head.offsetWidth;
-    head.style.transition = 'left linear ' + schedule.total + 'ms';
-    head.style.left = '100%';
-
-    btn.classList.add('is-playing');
-    var p = btn.querySelector('[data-icon="play"]');
-    var s = btn.querySelector('[data-icon="stop"]');
-    if (p) p.classList.add('hidden');
-    if (s) s.classList.remove('hidden');
-
-    currentTimeout = setTimeout(function(){ stopCurrent(); }, schedule.total + 60);
-  }
-
-  document.querySelectorAll('[data-play]').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var parts = btn.getAttribute('data-play').split(':');
-      playExample(Number(parts[0]), parts[1], btn);
-    });
-  });
-})();
-</script>
+<script src="js/icons.js"></script>
+<script src="js/content-de.js"></script>
+<script src="js/render-content.js"></script>
+<script src="js/audio-engine.js"></script>
+<script src="js/audio-examples.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/hero-waveform.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
