@@ -56,6 +56,8 @@ window.CONTENT = {
     p1: "Ich schneide nicht nebenbei vierzig Podcasts gleichzeitig. Ich arbeite bewusst nur mit einer kleinen Zahl an Kund:innen, damit jede Folge die Aufmerksamkeit bekommt, die sie braucht – und Rückmeldungen wirklich schnell umgesetzt werden.",
     p2: "Mein Fokus liegt auf Coaches, Berater:innen und Selbstständigen, deren Podcast ein echtes Aushängeschild ihres Business ist, kein Hobby-Projekt nebenbei. Entsprechend diskret behandle ich alles, was in deinen Rohaufnahmen zu hören ist.",
     p3: "Du bekommst keine Weiterleitung an wechselnde Freelancer, sondern eine feste Ansprechperson, die nach der zweiten oder dritten Folge genau weiß, wie deine Show klingen soll.",
+    photoAlt: "Portrait im Tonstudio von RiDoX Studio",
+    photoCaption: "Deine feste Ansprechperson bei RiDoX Studio",
     statsLabel: "Auf einen Blick",
     stats: [
       { value: "6+ Jahre", label: "Erfahrung", desc: "Audio-Bearbeitung für Interviews, Solo-Formate & Business-Podcasts.", fill: 78 },

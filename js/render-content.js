@@ -48,6 +48,23 @@ window.RenderContent = (function () {
       }
       node.textContent = value;
     });
+
+    // [data-key-attr="attributname:pfad.zum.text"] -> setzt ein Attribut
+    // (z. B. alt-Text von Bildern) statt textContent. So bleiben auch
+    // Alt-Texte zentral in content-de.js editier- und übersetzbar.
+    document.querySelectorAll('[data-key-attr]').forEach(function (node) {
+      var raw = node.getAttribute('data-key-attr');
+      var sep = raw.indexOf(':');
+      if (sep === -1) return;
+      var attr = raw.slice(0, sep);
+      var path = raw.slice(sep + 1);
+      var value = get(path);
+      if (value === undefined) {
+        console.warn('[content] fehlender Key (attr):', path);
+        return;
+      }
+      node.setAttribute(attr, value);
+    });
   }
 
   // ---------- Nutzen (Vorteile) ----------

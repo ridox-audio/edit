@@ -36,6 +36,15 @@ details[open] .faq-chevron-bg { background-color: #E8A33D; color: #12141A; }
   to { transform: scaleY(1); }
 }
 
+/* Portrait-Foto in der "Warum mit mir"-Sektion: dezent an die
+   dunkle, warme Studio-Palette angeglichen, ohne unnatürlich zu
+   wirken. */
+.portrait-photo {
+  display: block;
+  filter: saturate(1.05) contrast(1.03);
+  transition: filter .3s ease;
+}
+
 .card-hover {
   transition: border-color .2s ease, transform .2s ease, background-color .2s ease;
 }
