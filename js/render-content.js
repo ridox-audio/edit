@@ -133,8 +133,9 @@ window.RenderContent = (function () {
   }
 
   // ---------- Beispiele (Vorher/Nachher-Karten) ----------
-  // Baut die Kartenstruktur; audio-examples.js füllt anschließend
-  // Wellenformen, Dauer und Badge in dieselben IDs.
+  // Baut die Kartenstruktur inkl. echtem <audio>-Element pro Zeile.
+  // audio-examples.js übernimmt danach Wellenform, Wiedergabe und Dauer
+  // über dieselben IDs — das Badge ist reiner Text aus content-de.js.
   function renderBeispiele() {
     var data = CONTENT.beispiele;
     var list = document.getElementById('examples-list');
@@ -143,6 +144,7 @@ window.RenderContent = (function () {
     function playButton(idx, variant, extraClass) {
       var btn = document.createElement('button');
       btn.setAttribute('data-play', idx + ':' + variant);
+      btn.setAttribute('aria-label', 'Abspielen');
       btn.className = 'play-btn flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border text-mute hover:text-ink ' + extraClass;
       var playIcon = document.createElement('span');
       playIcon.setAttribute('data-icon', 'play');
@@ -157,16 +159,27 @@ window.RenderContent = (function () {
       return btn;
     }
 
-    function row(idx, variant, label, labelClass, btnClass) {
+    function row(idx, variant, label, labelClass, btnClass, src) {
       var wrap = el('div', 'flex items-center gap-4');
       wrap.appendChild(playButton(idx, variant, btnClass));
       wrap.appendChild(el('div', 'w-16 font-mono text-xs uppercase tracking-wide ' + labelClass, label));
-      var bars = el('div', 'relative h-12 flex-1 overflow-hidden rounded-lg bg-bgsoft');
+
+      var bars = el('div', 'relative h-12 flex-1 cursor-pointer overflow-hidden rounded-lg bg-bgsoft');
       bars.id = 'ex' + idx + '-' + variant + '-bars';
       wrap.appendChild(bars);
+
       var dur = el('div', 'w-14 flex-shrink-0 text-right font-mono text-xs text-mute', '—');
       dur.id = 'ex' + idx + '-' + variant + '-dur';
       wrap.appendChild(dur);
+
+      var audio = document.createElement('audio');
+      audio.id = 'ex' + idx + '-' + variant + '-audio';
+      audio.setAttribute('data-role', 'example');
+      audio.preload = 'metadata';
+      audio.src = src;
+      audio.className = 'hidden';
+      wrap.appendChild(audio);
+
       return wrap;
     }
 
@@ -178,17 +191,13 @@ window.RenderContent = (function () {
       headText.appendChild(el('h3', 'font-display text-xl font-medium', item.title));
       headText.appendChild(el('p', 'mt-1 text-sm text-mute', item.desc));
       head.appendChild(headText);
-      var badge = el('span', 'mt-2 inline-flex w-fit items-center rounded-full border border-teal/40 bg-teal/10 px-3 py-1 font-mono text-xs text-teal sm:mt-0', '—');
-      badge.id = 'ex' + idx + '-badge';
-      head.appendChild(badge);
+      head.appendChild(el('span', 'mt-2 inline-flex w-fit items-center rounded-full border border-teal/40 bg-teal/10 px-3 py-1 font-mono text-xs text-teal sm:mt-0', item.badge));
       card.appendChild(head);
 
       var rows = el('div', 'mt-6 space-y-4');
-      rows.appendChild(row(idx, 'vorher', data.labelVorher, 'text-mute', 'border-edge hover:border-mute'));
-      rows.appendChild(row(idx, 'nachher', data.labelNachher, 'text-teal', 'border-teal/50 hover:bg-teal/10'));
+      rows.appendChild(row(idx, 'vorher', data.labelVorher, 'text-mute', 'border-edge hover:border-mute', item.vorherSrc));
+      rows.appendChild(row(idx, 'nachher', data.labelNachher, 'text-teal', 'border-teal/50 hover:bg-teal/10', item.nachherSrc));
       card.appendChild(rows);
-
-      card.appendChild(el('p', 'mt-4 font-mono text-[11px] text-mute/70', data.caption));
 
       list.appendChild(card);
     });

@@ -26,6 +26,14 @@ details[open] .faq-chevron-bg { background-color: #E8A33D; color: #12141A; }
 /* Wellenform-Playhead (wird per JS animiert, left: 0% -> 100%) */
 .playhead { left: 0%; pointer-events: none; }
 
+/* Platzhalter-Balken, solange die echte Audiodatei noch geladen/
+   analysiert wird. */
+.example-bars-loading { animation: bars-pulse 1.4s ease-in-out infinite; }
+@keyframes bars-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.7; }
+}
+
 /* Ambient-Wellenform im Hero */
 .hero-amb-bar {
   animation: amb 2.6s ease-in-out infinite alternate;

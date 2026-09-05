@@ -69,14 +69,34 @@ window.CONTENT = {
   beispiele: {
     eyebrow: "Rein gehört",
     heading: "Hör den Unterschied, bevor du dich entscheidest",
-    intro: "Drei typische Probleme aus echten Rohaufnahmen – als Klangdemo nachgebaut, damit du die Wirkung von Rauschunterdrückung, Schnitt und Mastering direkt hörst. Deine eigene Probefolge bekommst du kostenlos.",
-    caption: "Klangbeispiel synthetisch erzeugt – veranschaulicht den Effekt der Bearbeitung.",
+    intro: "Dieselbe Aufnahme, einmal roh und einmal fertig bearbeitet — direkt zum Anhören. Deine eigene Probefolge bekommst du kostenlos.",
     labelVorher: "Vorher",
     labelNachher: "Nachher",
+    // Jedes Beispiel braucht zwei echte Audiodateien im /audio/-Ordner
+    // (Pfade unten). "badge" ist freier Text, keine Berechnung — bewusst
+    // in einfacher Sprache, ohne Fachbegriffe wie dB oder SNR.
     items: [
-      { title: "Interview mit Raumhall & Grundrauschen", desc: "Laptop-Lüfter, Videocall-Artefakte, Hall aus dem Wohnzimmer." },
-      { title: "Solo-Folge voller Denkpausen", desc: "Lange Ähm-Pausen zwischen den Gedanken." },
-      { title: "Leise & dumpfe Aufnahme", desc: "Zu weit vom Mikro entfernt, ohne Lautheitsnormalisierung." }
+      {
+        title: "Rohes Intro ohne Sounddesign",
+        desc: "Nur die Original-Aufnahme, ganz ohne Musik oder Übergänge.",
+        badge: "Musik & Übergänge ergänzt",
+        vorherSrc: "audio/01-intro-vorher.mp3",
+        nachherSrc: "audio/01-intro-nachher.mp3"
+      },
+      {
+        title: "Sprache mit Störgeräuschen",
+        desc: "Rauschen, Brummen oder Nebengeräusche in der Originalaufnahme.",
+        badge: "Störgeräusche weg",
+        vorherSrc: "audio/02-stoergeraeusche-vorher.mp3",
+        nachherSrc: "audio/02-stoergeraeusche-nachher.mp3"
+      },
+      {
+        title: "Lautstärke zu leise",
+        desc: "Deutlich leiser aufgenommen als der übliche Podcast-Standard.",
+        badge: "Lautstärke passt jetzt genau",
+        vorherSrc: "audio/03-lautstaerke-vorher.mp3",
+        nachherSrc: "audio/03-lautstaerke-nachher.mp3"
+      }
     ]
   },
 
