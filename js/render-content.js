@@ -14,6 +14,11 @@
  * übernimmt renderBeispiele() hier. audio-examples.js füllt danach
  * nur noch die Wellenformen/Badges in die schon vorhandenen
  * Container (ex0-vorher-bars usw.).
+ *
+ * Preise: jeder Paket-Button öffnet dieselbe Mail-Vorlage, aber mit
+ * dem jeweiligen Paket automatisch markiert (siehe
+ * buildTierMailBody). Die allgemeinen CTA-Buttons (Hero, Nav,
+ * Footer, Schluss-CTA) öffnen dieselbe Vorlage ohne Markierung.
  * ---------------------------------------------------------------
  */
 window.RenderContent = (function () {
@@ -95,21 +100,7 @@ window.RenderContent = (function () {
     });
   }
 
-  // ---------- Ablauf ----------
-  function renderAblauf() {
-    var data = CONTENT.ablauf;
-    var grid = document.getElementById('ablauf-grid');
-    if (!grid) return;
-    data.steps.forEach(function (step) {
-      var card = el('div', 'relative rounded-2xl border border-edge bg-surface p-7');
-      card.appendChild(el('span', 'font-mono text-sm text-amber', step.time));
-      card.appendChild(el('h3', 'mt-3 font-display text-lg font-medium', step.title));
-      card.appendChild(el('p', 'mt-2 text-sm leading-relaxed text-mute', step.desc));
-      grid.appendChild(card);
-    });
-  }
-
-  // ---------- Warum-mit-mir Kennzahlen ----------
+  // ---------- Warum-mit-uns Kennzahlen ----------
   function renderUeberStats() {
     var data = CONTENT.ueber;
     var wrap = document.getElementById('ueber-stats');
@@ -203,7 +194,18 @@ window.RenderContent = (function () {
     });
   }
 
-  // ---------- Preise ----------
+  // ---------- Preise: drei Pakete ----------
+  function featureList(features) {
+    var ul = el('ul', 'mt-6 flex-1 space-y-3 text-sm text-mute');
+    features.forEach(function (f) {
+      var li = el('li', 'flex gap-2');
+      li.appendChild(el('span', 'text-teal', '✓'));
+      li.appendChild(document.createTextNode(f));
+      ul.appendChild(li);
+    });
+    return ul;
+  }
+
   function renderPreise() {
     var data = CONTENT.preise;
     var grid = document.getElementById('preise-grid');
@@ -217,63 +219,64 @@ window.RenderContent = (function () {
         card.appendChild(el('span', 'absolute -top-3 left-7 rounded-full bg-amber px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-wide text-bg', tier.badge));
       }
 
-      var head = el('div', 'flex items-start justify-between gap-4');
-      var headText = el('div');
-      headText.appendChild(el('h3', 'font-display text-xl font-medium', tier.name));
-      headText.appendChild(el('p', 'mt-1 text-sm text-mute', tier.subtitle));
-      head.appendChild(headText);
-      head.appendChild(fader(tier));
-      card.appendChild(head);
+      card.appendChild(el('h3', 'font-display text-xl font-medium', tier.name));
+      card.appendChild(el('p', 'mt-1 text-sm text-mute', tier.subtitle));
 
-      var featureList = el('ul', 'mt-6 flex-1 space-y-3 text-sm text-mute');
-      tier.features.forEach(function (f) {
-        var li = el('li', 'flex gap-2');
-        var mark = el('span', 'text-teal', '✓');
-        li.appendChild(mark);
-        li.appendChild(document.createTextNode(f));
-        featureList.appendChild(li);
-      });
-      card.appendChild(featureList);
+      var priceRow = el('div', 'mt-5 flex items-baseline gap-2');
+      priceRow.appendChild(el('span', 'font-display text-3xl font-semibold text-ink', tier.price));
+      priceRow.appendChild(el('span', 'font-mono text-xs text-mute', tier.priceUnit));
+      card.appendChild(priceRow);
+      card.appendChild(el('p', 'mt-1 font-mono text-xs text-mute', tier.extraNote));
 
-      var bottom = el('div', 'mt-8 border-t border-edge pt-6');
-      bottom.appendChild(el('p', 'text-sm text-mute', tier.priceNote));
-      var priceRow = el('div', 'mt-2 flex items-baseline gap-2');
-      priceRow.appendChild(el('span', 'font-display text-2xl font-semibold text-ink', tier.price));
-      if (tier.priceUnit) priceRow.appendChild(el('span', 'font-mono text-xs text-mute', tier.priceUnit));
-      bottom.appendChild(priceRow);
-
-      var ctaBtn = el('a', 'mt-5 block rounded-full px-5 py-3 text-center text-sm font-medium transition ' +
-        (tier.highlighted ? 'bg-amber text-bg hover:bg-amber/90' : 'border border-edge text-ink hover:border-mute'), tier.cta);
-      ctaBtn.href = '#kontakt';
-      ctaBtn.setAttribute('data-cta', 'primary');
-      bottom.appendChild(ctaBtn);
-
-      if (tier.secondaryCta) {
-        var secLink = el('a', 'mt-3 block text-center text-xs text-mute underline underline-offset-4 hover:text-ink', tier.secondaryCta);
-        secLink.href = '#kontakt';
-        bottom.appendChild(secLink);
+      if (tier.includesNote) {
+        card.appendChild(el('p', 'mt-5 text-sm font-medium text-ink', tier.includesNote));
       }
 
-      card.appendChild(bottom);
+      card.appendChild(featureList(tier.features));
+
+      var ctaBtn = el('a', 'mt-8 block rounded-full px-5 py-3 text-center text-sm font-medium transition ' +
+        (tier.highlighted ? 'bg-amber text-bg hover:bg-amber/90' : 'border border-edge text-ink hover:border-mute'), tier.cta);
+      ctaBtn.href = '#kontakt';
+      ctaBtn.setAttribute('data-cta-tier', tier.key);
+      card.appendChild(ctaBtn);
+
       grid.appendChild(card);
     });
   }
 
-  function fader(tier) {
-    // Visuelle Mono/Stereo-Metapher: ein Kanal vs. zwei Kanäle.
-    var wrap = el('div', 'flex flex-shrink-0 gap-1');
-    var barCount = tier.name === 'Stereo' ? 2 : 1;
-    var color = tier.highlighted ? 'bg-amber' : 'bg-mute';
-    for (var i = 0; i < barCount; i++) {
-      var col = el('div', 'h-16 w-1.5 overflow-hidden rounded-full bg-edge');
-      var fill = el('div', color + ' w-full');
-      var pct = tier.highlighted ? (80 - i * 8) : 45;
-      fill.style.height = pct + '%';
-      fill.style.marginTop = (100 - pct) + '%';
-      col.appendChild(fill);
-      wrap.appendChild(col);
-    }
-    return wrap;
+  // ---------- Preise: Publishing-Upgrade (Add-on, kein eigenes Paket) ----------
+  function renderPreiseAddon() {
+    var addon = CONTENT.preise.addon;
+    var wrap = document.getElementById('preise-addon');
+    if (!wrap || !addon) return;
+
+    var card = el('div', 'flex flex-col gap-6 rounded-2xl border border-edge bg-surface p-7 lg:flex-row lg:items-center lg:justify-between');
+
+    var left = el('div', 'lg:max-w-sm');
+    left.appendChild(el('span', 'font-mono text-[11px] uppercase tracking-wide text-teal', 'Zusatzleistung'));
+    left.appendChild(el('h3', 'mt-2 font-display text-xl font-medium', addon.name));
+    left.appendChild(el('p', 'mt-2 text-sm text-mute', addon.subtitle));
+    var priceRow = el('div', 'mt-4 flex items-baseline gap-2');
+    priceRow.appendChild(el('span', 'font-display text-2xl font-semibold text-ink', addon.price));
+    priceRow.appendChild(el('span', 'font-mono text-xs text-mute', addon.priceUnit));
+    left.appendChild(priceRow);
+    card.appendChild(left);
+
+    var mid = el('ul', 'grid flex-1 grid-cols-1 gap-x-6 gap-y-3 text-sm text-mute sm:grid-cols-2');
+    addon.features.forEach(function (f) {
+      var li = el('li', 'flex gap-2');
+      li.appendChild(el('span', 'text-teal', '✓'));
+      li.appendChild(document.createTextNode(f));
+      mid.appendChild(li);
+    });
+    card.appendChild(mid);
+
+    var ctaBtn = el('a', 'flex-shrink-0 rounded-full border border-edge px-5 py-3 text-center text-sm font-medium text-ink transition hover:border-mute', addon.cta);
+    ctaBtn.href = '#kontakt';
+    ctaBtn.setAttribute('data-cta-tier', addon.key);
+    card.appendChild(ctaBtn);
+
+    wrap.appendChild(card);
   }
 
   // ---------- FAQ ----------
@@ -327,13 +330,31 @@ window.RenderContent = (function () {
   }
 
   // ---------- mailto-CTAs verdrahten ----------
-  function wireMailtoCtas() {
+  // Baut die Paket-Checkliste für die Mail-Vorlage. selectedKey === null
+  // -> nichts markiert (allgemeine CTAs wie Hero/Nav/Footer).
+  function buildTierChecklist(selectedKey) {
+    var lines = CONTENT.preise.tiers.map(function (t) {
+      return (t.key === selectedKey ? '[x] ' : '[ ] ') + t.name + ' – ' + t.price;
+    });
+    lines.push((selectedKey === CONTENT.preise.addon.key ? '[x] ' : '[ ] ') + CONTENT.preise.addon.name + ' – ' + CONTENT.preise.addon.price);
+    lines.push((selectedKey === 'custom' ? '[x] ' : '[ ] ') + 'Individuelles Angebot – ich habe andere Anforderungen');
+    return lines.join('\n');
+  }
+
+  function buildMailtoHref(selectedKey) {
     var c = CONTENT.cta;
-    var href = 'mailto:' + c.mailTo +
+    var body = c.mailBodyIntro + buildTierChecklist(selectedKey) + c.mailBodyOutro;
+    return 'mailto:' + c.mailTo +
       '?subject=' + encodeURIComponent(c.mailSubject) +
-      '&body=' + encodeURIComponent(c.mailBody);
+      '&body=' + encodeURIComponent(body);
+  }
+
+  function wireMailtoCtas() {
     document.querySelectorAll('[data-cta="primary"]').forEach(function (a) {
-      a.setAttribute('href', href);
+      a.setAttribute('href', buildMailtoHref(null));
+    });
+    document.querySelectorAll('[data-cta-tier]').forEach(function (a) {
+      a.setAttribute('href', buildMailtoHref(a.getAttribute('data-cta-tier')));
     });
   }
 
@@ -346,9 +367,9 @@ window.RenderContent = (function () {
     renderNutzen();
     renderUeberStats();
     renderLeistungen();
-    renderAblauf();
     renderBeispiele();
     renderPreise();
+    renderPreiseAddon();
     renderFaq();
     renderFooterLinks();
     wireMailtoCtas();

@@ -25,7 +25,6 @@
     <div class="hidden items-center gap-8 md:flex">
       <a href="#leistungen" class="text-sm text-mute transition hover:text-ink" data-key="nav.leistungen"></a>
       <a href="#beispiele" class="text-sm text-mute transition hover:text-ink" data-key="nav.beispiele"></a>
-      <a href="#ablauf" class="text-sm text-mute transition hover:text-ink" data-key="nav.ablauf"></a>
       <a href="#preise" class="text-sm text-mute transition hover:text-ink" data-key="nav.preise"></a>
       <a href="#faq" class="text-sm text-mute transition hover:text-ink" data-key="nav.faq"></a>
     </div>
@@ -40,7 +39,6 @@
     <div class="flex flex-col gap-4 pt-4">
       <a href="#leistungen" class="text-sm text-mute hover:text-ink" data-key="nav.leistungen"></a>
       <a href="#beispiele" class="text-sm text-mute hover:text-ink" data-key="nav.beispiele"></a>
-      <a href="#ablauf" class="text-sm text-mute hover:text-ink" data-key="nav.ablauf"></a>
       <a href="#preise" class="text-sm text-mute hover:text-ink" data-key="nav.preise"></a>
       <a href="#faq" class="text-sm text-mute hover:text-ink" data-key="nav.faq"></a>
       <a href="#kontakt" data-cta="primary" class="mt-2 rounded-full bg-amber px-5 py-2.5 text-center font-mono text-xs font-medium uppercase tracking-wide text-bg" data-key="nav.cta"></a>
@@ -125,15 +123,6 @@
   </div>
 </section>
 
-<!-- ============ ABLAUF ============ -->
-<section id="ablauf" class="border-b border-edge bg-bgsoft">
-  <div class="mx-auto max-w-7xl px-6 py-24 sm:py-28">
-    <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal" data-key="ablauf.eyebrow"></p>
-    <h2 class="mt-4 max-w-xl font-display text-3xl font-semibold tracking-tight sm:text-4xl" data-key="ablauf.heading"></h2>
-    <div id="ablauf-grid" class="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-3"></div>
-  </div>
-</section>
-
 <!-- ============ LEISTUNGEN ============ -->
 <section id="leistungen" class="border-b border-edge bg-bg">
   <div class="mx-auto max-w-7xl px-6 py-24 sm:py-28">
@@ -148,10 +137,16 @@
   <div class="mx-auto max-w-7xl px-6 py-24 sm:py-28">
     <p class="font-mono text-xs uppercase tracking-[0.25em] text-teal" data-key="preise.eyebrow"></p>
     <h2 class="mt-4 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl" data-key="preise.heading"></h2>
+    <p class="mt-4 max-w-2xl text-base leading-relaxed text-mute" data-key="preise.intro"></p>
 
-    <div class="mt-6 max-w-2xl rounded-xl border border-teal/30 bg-teal/5 px-5 py-4 text-sm leading-relaxed text-ink" data-key="preise.riskBanner"></div>
+    <div id="preise-grid" class="mx-auto mt-14 grid max-w-6xl grid-cols-1 gap-6 lg:grid-cols-3"></div>
 
-    <div id="preise-grid" class="mx-auto mt-14 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2"></div>
+    <div id="preise-addon" class="mx-auto mt-6 max-w-6xl"></div>
+
+    <p class="mt-8 text-center text-sm text-mute">
+      <span data-key="preise.customNote"></span>
+      <a href="#kontakt" data-cta-tier="custom" class="ml-1 text-ink underline underline-offset-4 hover:text-amber" data-key="preise.customCta"></a>
+    </p>
   </div>
 </section>
 
