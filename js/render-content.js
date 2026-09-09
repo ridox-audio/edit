@@ -240,6 +240,15 @@ window.RenderContent = (function () {
       ctaBtn.setAttribute('data-cta-tier', tier.key);
       card.appendChild(ctaBtn);
 
+      // Zweiter, dezenterer Link: Paket + Publishing-Upgrade zusammen
+      // anfragen (markiert in der Mail-Vorlage beide Checkboxen).
+      var addon = CONTENT.preise.addon;
+      var addonLinkText = addon.tierLinkPattern.replace('{tier}', tier.name);
+      var addonLink = el('a', 'mt-3 block text-center text-xs text-mute underline underline-offset-4 hover:text-ink', addonLinkText);
+      addonLink.href = '#kontakt';
+      addonLink.setAttribute('data-cta-tier', tier.key + ',' + addon.key);
+      card.appendChild(addonLink);
+
       grid.appendChild(card);
     });
   }
@@ -330,20 +339,24 @@ window.RenderContent = (function () {
   }
 
   // ---------- mailto-CTAs verdrahten ----------
-  // Baut die Paket-Checkliste für die Mail-Vorlage. selectedKey === null
-  // -> nichts markiert (allgemeine CTAs wie Hero/Nav/Footer).
-  function buildTierChecklist(selectedKey) {
+  // Baut die Paket-Checkliste für die Mail-Vorlage. selectedKeys ist ein
+  // Array von Keys, die als "[x]" markiert werden (leeres Array/null ->
+  // nichts markiert, z. B. bei den allgemeinen CTAs Hero/Nav/Footer).
+  // Für die "Paket inkl. Veröffentlichung"-Links stehen hier zwei Keys
+  // drin (Paket + "publishing").
+  function buildTierChecklist(selectedKeys) {
+    var keys = selectedKeys || [];
     var lines = CONTENT.preise.tiers.map(function (t) {
-      return (t.key === selectedKey ? '[x] ' : '[ ] ') + t.name + ' – ' + t.price;
+      return (keys.indexOf(t.key) !== -1 ? '[x] ' : '[ ] ') + t.name + ' – ' + t.price;
     });
-    lines.push((selectedKey === CONTENT.preise.addon.key ? '[x] ' : '[ ] ') + CONTENT.preise.addon.name + ' – ' + CONTENT.preise.addon.price);
-    lines.push((selectedKey === 'custom' ? '[x] ' : '[ ] ') + 'Individuelles Angebot – ich habe andere Anforderungen');
+    lines.push((keys.indexOf(CONTENT.preise.addon.key) !== -1 ? '[x] ' : '[ ] ') + CONTENT.preise.addon.name + ' – ' + CONTENT.preise.addon.price);
+    lines.push((keys.indexOf('custom') !== -1 ? '[x] ' : '[ ] ') + 'Individuelles Angebot – ich habe andere Anforderungen');
     return lines.join('\n');
   }
 
-  function buildMailtoHref(selectedKey) {
+  function buildMailtoHref(selectedKeys) {
     var c = CONTENT.cta;
-    var body = c.mailBodyIntro + buildTierChecklist(selectedKey) + c.mailBodyOutro;
+    var body = c.mailBodyIntro + buildTierChecklist(selectedKeys) + c.mailBodyOutro;
     return 'mailto:' + c.mailTo +
       '?subject=' + encodeURIComponent(c.mailSubject) +
       '&body=' + encodeURIComponent(body);
@@ -354,7 +367,8 @@ window.RenderContent = (function () {
       a.setAttribute('href', buildMailtoHref(null));
     });
     document.querySelectorAll('[data-cta-tier]').forEach(function (a) {
-      a.setAttribute('href', buildMailtoHref(a.getAttribute('data-cta-tier')));
+      var keys = a.getAttribute('data-cta-tier').split(',').map(function (k) { return k.trim(); });
+      a.setAttribute('href', buildMailtoHref(keys));
     });
   }
 

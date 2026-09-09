@@ -11,15 +11,17 @@
  *   nichts anzupassen.
  * - "icon"-Werte referenzieren Keys aus js/icons.js.
  * - Alle E-Mail-Buttons öffnen ein mailto: an cta.mailTo. Bei den
- *   Preis-Paketen wird automatisch das jeweilige Paket in der
- *   Mail-Vorlage markiert (siehe render-content.js).
+ *   Preis-Paketen wird automatisch das jeweilige Paket (und bei
+ *   den "inkl. Veröffentlichung"-Links zusätzlich das
+ *   Publishing-Upgrade) in der Mail-Vorlage markiert — siehe
+ *   render-content.js.
  * ---------------------------------------------------------------
  */
 window.CONTENT = {
 
   meta: {
     title: "RiDoX Studio — Podcast-Editing für Coaches & Berater",
-    description: "Professionelle Podcast-Bearbeitung für Coaches, Berater und Selbstständige: Schnitt, Restauration, Mastering, Shownotes. Jetzt anfragen."
+    description: "Persönliches Podcast-Editing für Coaches, Berater und Selbstständige: Schnitt, Restauration, Mastering, Shownotes, auf Wunsch bis zur Veröffentlichung. Rundum-sorglos-Paket anfragen."
   },
 
   nav: {
@@ -27,37 +29,37 @@ window.CONTENT = {
     beispiele: "Beispiele",
     preise: "Preise",
     faq: "FAQ",
-    cta: "Podcast großartig machen"
+    cta: "Rundum-sorglos anfragen"
   },
 
   hero: {
     eyebrow: "Podcast-Editing für Coaches, Berater:innen & Selbstständige",
-    headline: "Du sprichst, wir erledigen den Rest.",
-    sub: "Für Coaches, Berater:innen und Selbstständige, die lieber ins Gespräch investieren als in Audio-Software. Du schickst die Rohaufnahme, wir liefern die sendefertige Folge zurück.",
-    ctaPrimary: "Meinen Podcast großartig machen",
+    headline: "Du sprichst, ich erledige den Rest.",
+    sub: "Für Coaches, Berater:innen und Selbstständige, die lieber ins Gespräch investieren als in Audio-Software. Du schickst die Rohaufnahme, ich liefere die sendefertige Folge zurück — bei Bedarf inklusive Veröffentlichung, Newsletter-Text und Social-Media-Clips.",
+    ctaPrimary: "Rundum-sorglos-Paket anfragen",
     ctaSecondary: "Beispiele anhören",
     microtrust: "Transparente Festpreise · keine versteckten Kosten"
   },
 
   nutzen: {
     eyebrow: "Warum auslagern",
-    heading: "Du bringst die Stimme. Wir liefern die fertige Folge.",
+    heading: "Du bringst die Stimme. Ich liefere die fertige Folge.",
     items: [
-      { icon: "clock", title: "Zeit zurück", desc: "Kein Wochenende mehr mit Audioschnitt. Du nimmst auf, wir erledigen den Rest." },
+      { icon: "clock", title: "Zeit zurück", desc: "Dein Wochenende gehört dir. Du nimmst auf, ich erledige den Rest." },
       { icon: "waveform", title: "Klingt professionell", desc: "Sauberer, druckvoller Klang – auf Kopfhörern genauso wie im Auto." },
-      { icon: "scissors", title: "Ohne Leerlauf", desc: "Denkpausen, Versprecher und Ähs verschwinden, ohne dass man den Schnitt hört." },
+      { icon: "scissors", title: "Straffer Redefluss", desc: "Denkpausen, Versprecher und Ähs verschwinden, ohne dass man den Schnitt hört." },
       { icon: "calendar", title: "Planbar", desc: "Feste Bearbeitungszeit, feste Abgabe. Dein Redaktionsplan bleibt stabil." },
-      { icon: "sliders", title: "Passend zu deinem Format", desc: "Solo-Folge, Interview oder Rückblick: Der Schnitt folgt deinem Stil, nicht Schema F." },
-      { icon: "chat", title: "Direkter Draht zu uns", desc: "Kein wechselnder Freelancer-Pool. Du schreibst uns, wir antworten." }
+      { icon: "sliders", title: "Jede Folge einzeln abgestimmt", desc: "Kein automatisierter AI-Workflow von der Stange – ich höre mir jede Aufnahme an und schneide sie individuell für genau diese Folge." },
+      { icon: "chat", title: "Ein fester Ansprechpartner", desc: "Immer dieselbe Person am anderen Ende. Du schreibst mir, ich antworte." }
     ]
   },
 
   ueber: {
-    eyebrow: "Warum mit uns",
-    heading: "Kein Agentur-Fließband. Ein festes Team, das deinen Podcast kennt.",
-    p1: "Wir schneiden nicht nebenbei vierzig Podcasts gleichzeitig. Wir arbeiten bewusst nur mit einer kleinen Zahl an Kund:innen, damit jede Folge die Aufmerksamkeit bekommt, die sie braucht – und Rückmeldungen wirklich schnell umgesetzt werden.",
-    p2: "Unser Fokus liegt auf Coaches, Berater:innen und Selbstständigen, deren Podcast ein echtes Aushängeschild ihres Business ist, kein Hobby-Projekt nebenbei. Entsprechend diskret behandeln wir alles, was in deinen Rohaufnahmen zu hören ist.",
-    p3: "Du bekommst keine Weiterleitung an wechselnde Freelancer, sondern ein festes Team, das nach der zweiten oder dritten Folge genau weiß, wie deine Show klingen soll.",
+    eyebrow: "Warum mit mir",
+    heading: "Handarbeit statt Agentur-Fließband. Eine feste Person, die deinen Podcast kennt.",
+    p1: "Ich schneide nicht nebenbei vierzig Podcasts gleichzeitig. Ich arbeite bewusst nur mit einer kleinen Zahl an Kund:innen – jede Folge wird einzeln angehört und individuell geschnitten, statt durch ein automatisiertes Standard-Template zu laufen.",
+    p2: "Als Muttersprachler spezialisiere ich mich bewusst auf deutschsprachige Podcasts, um mich voll auf natürlichen Sprachfluss und Verständlichkeit konzentrieren zu können. Mein Fokus liegt auf Coaches, Berater:innen und Selbstständigen, deren Podcast ein echtes Aushängeschild ihres Business ist – nicht nur ein Hobby-Projekt nebenbei.",
+    p3: "Deine Rohdaten bleiben dabei komplett bei mir: Ich arbeite lokal, ganz ohne Cloud-KI-Tools – von Schnitt bis Transkript. Und statt wechselnder Freelancer bekommst du immer dieselbe Person, die nach der zweiten oder dritten Folge genau weiß, wie deine Show klingen soll.",
     photoAlt: "Portrait im Tonstudio von RiDoX Studio",
     photoCaption: "Deine feste Ansprechperson bei RiDoX Studio",
     statsLabel: "Auf einen Blick",
@@ -156,11 +158,13 @@ window.CONTENT = {
           "Transkript",
           "Kapitelmarken/Timestamps",
           "Shownotes-Entwurf",
+          "1 Social-Media-Clip (Reel/Short) zur Folge",
+          "Newsletter-Text zur Folge",
           "2 Korrekturschleifen"
         ],
         cta: "Studio anfragen",
         highlighted: true,
-        badge: "Meistgewählt"
+        badge: "Sweet Spot"
       },
       {
         key: "signature",
@@ -173,18 +177,21 @@ window.CONTENT = {
         features: [
           "Rettung schwieriger Aufnahmen (starkes Rauschen/Hall/Klicks)",
           "Integration mehrerer Sounds/Werbung/Zwischenaudios (bis 5 Elemente)",
+          "4 weitere Social-Media-Clips (insgesamt 5 Reels/Shorts)",
           "Unbegrenzte Korrekturschleifen",
-          "Express-Lieferung (Priorität, 48 Std.)",
-          "1 Social-Media-Clip (bis 60 Sek.)"
+          "Express-Lieferung (Priorität, 48 Std.)"
         ],
         cta: "Signature anfragen",
         highlighted: false
       }
     ],
+    // Wird sowohl als eigenständige Karte gezeigt als auch als
+    // zweiter, dezenterer Link in jeder Paket-Karte ("Core inkl.
+    // Veröffentlichung anfragen" usw.) — siehe render-content.js.
     addon: {
       key: "publishing",
       name: "Publishing-Upgrade",
-      subtitle: "„Wir übernehmen alles von den Rohdaten bis zur Veröffentlichung\u201c — buchbar zu jedem der drei Pakete.",
+      subtitle: "„Ich übernehme alles von den Rohdaten bis zur Veröffentlichung\u201c — buchbar zu jedem der drei Pakete.",
       price: "129 €",
       priceUnit: "pro Folge",
       features: [
@@ -195,7 +202,10 @@ window.CONTENT = {
         "Tags/Kategorien setzen",
         "Terminierung/Veröffentlichungsplanung"
       ],
-      cta: "Upgrade dazu buchen"
+      cta: "Upgrade dazu buchen",
+      // Text-Pattern für den zweiten Link je Paket-Karte:
+      // "{Paketname}" wird durch render-content.js ersetzt.
+      tierLinkPattern: "{tier} inkl. Veröffentlichung anfragen"
     },
     customNote: "Passt keins der Pakete genau?",
     customCta: "Individuelles Angebot anfragen"
@@ -207,26 +217,27 @@ window.CONTENT = {
     items: [
       { q: "Wie schnell bekomme ich meine Folge zurück?", a: "Für die meisten Folgen liegt die Bearbeitungszeit bei wenigen Werktagen. Beim Signature-Paket lässt sich zusätzlich eine Express-Lieferung mit 48 Stunden Priorität dazubuchen." },
       { q: "Muss ich mich langfristig binden?", a: "Nein. Du buchst pro Folge, ganz ohne Abo oder Mindestlaufzeit." },
-      { q: "Was, wenn mir das Ergebnis nicht gefällt?", a: "Jedes Paket enthält Korrekturschleifen — beim Signature-Paket sogar unbegrenzt. Wir passen die Folge an, bis sie zu deiner Show passt." },
-      { q: "Welche Dateiformate braucht ihr von mir?", a: "Am liebsten unkomprimiertes WAV, idealerweise als Einzelspuren pro Sprecher. Aufnahmen aus gängigen Videocall- und Aufnahme-Tools funktionieren aber ebenso." },
-      { q: "Bearbeitet ihr auch Video-Podcasts?", a: "Der Fokus liegt auf Audio. Bei Bedarf sprechen wir uns mit deiner Videoschnitt-Person ab, damit Schnittpunkte in Ton und Bild zusammenpassen." },
-      { q: "Wie läuft die Kommunikation ab?", a: "Direkt per E-Mail, ohne Ticketsystem und ohne wechselnde Ansprechpersonen. Dateien tauschen wir über einen gemeinsamen Cloud-Ordner aus." },
+      { q: "Was, wenn mir das Ergebnis nicht gefällt?", a: "Jedes Paket enthält Korrekturschleifen — beim Signature-Paket sogar unbegrenzt. Ich passe die Folge an, bis sie zu deiner Show passt." },
+      { q: "Welche Dateiformate brauchst du von mir?", a: "Am liebsten unkomprimiertes WAV, idealerweise als Einzelspuren pro Sprecher. Aufnahmen aus gängigen Videocall- und Aufnahme-Tools funktionieren aber ebenso." },
+      { q: "Wie sicher sind meine Rohdaten bei dir?", a: "Sehr sicher: Ich arbeite komplett lokal, auch die Transkription läuft über eine selbst gehostete KI-Lösung statt über einen Cloud-Dienst Dritter. Deine Aufnahmen verlassen zu keinem Zeitpunkt meine eigene Infrastruktur." },
+      { q: "Bearbeitest du auch Video-Podcasts?", a: "Der Fokus liegt auf Audio. Bei Bedarf spreche ich mich mit deiner Videoschnitt-Person ab, damit Schnittpunkte in Ton und Bild zusammenpassen." },
+      { q: "Wie läuft die Kommunikation ab?", a: "Direkt per E-Mail, immer mit mir als fester Ansprechperson. Dateien tausche ich mit dir über einen gemeinsamen Cloud-Ordner aus." },
       { q: "Was kostet die Bearbeitung?", a: "Core startet bei 89 €, Studio bei 159 € und Signature bei 329 € — jeweils für Folgen bis 60 Minuten, danach ein fester Aufschlag je weitere 30 Minuten. Das Publishing-Upgrade für 129 € pro Folge lässt sich zu jedem Paket dazubuchen." },
-      { q: "Was, wenn keins der Pakete genau passt?", a: "Kein Problem — schreib uns einfach, welche Anforderungen du hast, dann erstellen wir dir ein individuelles Angebot." }
+      { q: "Was, wenn keins der Pakete genau passt?", a: "Kein Problem — schreib mir einfach, welche Anforderungen du hast, dann erstelle ich dir ein individuelles Angebot." }
     ]
   },
 
   cta: {
     eyebrow: "Bereit loszulegen?",
     heading: "Zeit für eine Folge, die beeindruckt.",
-    sub: "Schreib uns, welches Paket zu dir passt, oder frag ein individuelles Angebot an — wir melden uns in der Regel innerhalb eines Werktags.",
-    button: "Meinen Podcast großartig machen",
+    sub: "Schreib mir, welches Paket zu dir passt, oder frag ein individuelles Angebot an — ich melde mich in der Regel innerhalb eines Werktags.",
+    button: "Rundum-sorglos-Paket anfragen",
     microtrust: "Antwort in der Regel innerhalb eines Werktags.",
     mailTo: "podcast@ridox.studio",
-    mailSubject: "Anfrage: Podcast-Editing bei RiDoX Studio",
+    mailSubject: "Anfrage: Rundum-sorglos-Paket – RiDoX Studio",
     // mailBodyIntro/-Outro umschließen die automatisch generierte
-    // Paket-Checkliste (siehe render-content.js: buildTierMailBody).
-    mailBodyIntro: "Hallo RiDoX Studio Team,\n\nich interessiere mich für folgendes Paket:\n",
+    // Paket-Checkliste (siehe render-content.js: buildTierChecklist).
+    mailBodyIntro: "Hallo RiDoX Studio,\n\nich interessiere mich für folgendes Paket:\n",
     mailBodyOutro: "\n\nKurz zu meinem Podcast:\n- Ungefähre Folgenlänge:\n- Veröffentlichungsrhythmus:\n- Sonstiges:\n\nViele Grüße"
   },
 
@@ -237,6 +248,6 @@ window.CONTENT = {
     impressum: "Impressum",
     datenschutz: "Datenschutz",
     copyright: "© 2026 RiDoX Studio · Alle Rechte vorbehalten.",
-    cta: "Podcast großartig machen"
+    cta: "Rundum-sorglos-Paket anfragen"
   }
 };
