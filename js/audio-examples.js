@@ -24,7 +24,7 @@ window.AudioExamples = (function () {
     wrap.className = 'flex h-full w-full items-end gap-[2px] example-bars-loading';
     for (var i = 0; i < NUM_BARS; i++) {
       var d = document.createElement('div');
-      d.className = 'w-[3px] flex-shrink-0 rounded-sm bg-edge';
+      d.className = 'flex-1 flex-shrink-0 rounded-sm bg-edge';
       d.style.height = '14%';
       wrap.appendChild(d);
     }
@@ -39,7 +39,7 @@ window.AudioExamples = (function () {
     peaks.forEach(function (p) {
       var d = document.createElement('div');
       var h = Math.max(6, Math.round(p * 100));
-      d.className = 'w-[3px] flex-shrink-0 rounded-sm ' + colorClass;
+      d.className = 'flex-1 flex-shrink-0 rounded-sm ' + colorClass;
       d.style.height = h + '%';
       wrap.appendChild(d);
     });
