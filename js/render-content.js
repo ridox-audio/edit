@@ -240,11 +240,11 @@ window.RenderContent = (function () {
       ctaBtn.setAttribute('data-cta-tier', tier.key);
       card.appendChild(ctaBtn);
 
-      // Zweiter, dezenterer Link: Paket + Publishing-Upgrade zusammen
-      // anfragen (markiert in der Mail-Vorlage beide Checkboxen).
+      // Zweiter, gleichwertiger Button: Paket + Publishing-Upgrade
+      // zusammen anfragen (markiert in der Mail-Vorlage beide Zeilen).
       var addon = CONTENT.preise.addon;
       var addonLinkText = addon.tierLinkPattern.replace('{tier}', tier.name);
-      var addonLink = el('a', 'mt-3 block text-center text-xs text-mute underline underline-offset-4 hover:text-ink', addonLinkText);
+      var addonLink = el('a', 'mt-4 block rounded-full border border-edge px-5 py-3 text-center text-sm font-medium text-ink transition hover:border-mute', addonLinkText);
       addonLink.href = '#kontakt';
       addonLink.setAttribute('data-cta-tier', tier.key + ',' + addon.key);
       card.appendChild(addonLink);
@@ -254,12 +254,16 @@ window.RenderContent = (function () {
   }
 
   // ---------- Preise: Publishing-Upgrade (Add-on, kein eigenes Paket) ----------
+  // Wird unterhalb aller Tiers als informative Übersicht ohne eigenen
+  // Button gezeigt — Publishing wird ausschließlich über die zweiten
+  // "inkl. Publishing-Upgrade"-Buttons in den jeweiligen Tier-Karten
+  // bestellt (siehe renderPreise).
   function renderPreiseAddon() {
     var addon = CONTENT.preise.addon;
     var wrap = document.getElementById('preise-addon');
     if (!wrap || !addon) return;
 
-    var card = el('div', 'flex flex-col gap-6 rounded-2xl border border-edge bg-surface p-7 lg:flex-row lg:items-center lg:justify-between');
+    var card = el('div', 'flex flex-col gap-6 rounded-2xl border border-edge bg-surface p-7 lg:flex-row lg:items-center lg:gap-12');
 
     var left = el('div', 'lg:max-w-sm');
     left.appendChild(el('span', 'font-mono text-[11px] uppercase tracking-wide text-teal', 'Zusatzleistung'));
@@ -279,11 +283,6 @@ window.RenderContent = (function () {
       mid.appendChild(li);
     });
     card.appendChild(mid);
-
-    var ctaBtn = el('a', 'flex-shrink-0 rounded-full border border-edge px-5 py-3 text-center text-sm font-medium text-ink transition hover:border-mute', addon.cta);
-    ctaBtn.href = '#kontakt';
-    ctaBtn.setAttribute('data-cta-tier', addon.key);
-    card.appendChild(ctaBtn);
 
     wrap.appendChild(card);
   }

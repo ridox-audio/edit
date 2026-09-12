@@ -185,9 +185,10 @@ window.CONTENT = {
         highlighted: false
       }
     ],
-    // Wird sowohl als eigenständige Karte gezeigt als auch als
-    // zweiter, dezenterer Link in jeder Paket-Karte ("Core inkl.
-    // Veröffentlichung anfragen" usw.) — siehe render-content.js.
+    // Wird als informative Übersicht unterhalb aller Tiers gezeigt,
+    // ohne eigenen Bestell-Button — Publishing wird ausschließlich über
+    // den zweiten Button in jeder Paket-Karte ("Core inkl.
+    // Publishing-Upgrade anfragen" usw.) gebucht (siehe render-content.js).
     addon: {
       key: "publishing",
       name: "Publishing-Upgrade",
@@ -202,10 +203,9 @@ window.CONTENT = {
         "Tags/Kategorien setzen",
         "Terminierung/Veröffentlichungsplanung"
       ],
-      cta: "Upgrade dazu buchen",
-      // Text-Pattern für den zweiten Link je Paket-Karte:
+      // Text-Pattern für den zweiten Button je Paket-Karte:
       // "{Paketname}" wird durch render-content.js ersetzt.
-      tierLinkPattern: "{tier} inkl. Veröffentlichung anfragen"
+      tierLinkPattern: "{tier} inkl. Publishing-Upgrade anfragen"
     },
     customNote: "Passt keins der Pakete genau?",
     customCta: "Individuelles Angebot anfragen"
