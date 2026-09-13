@@ -242,7 +242,7 @@ window.CONTENT = {
   },
 
   footer: {
-    tagline: "Podcast-Editing für Coaches, Berater:innen und Selbstständige, die kein eigenes Studio aufbauen wollen — sondern eine fertige Folge im Feed.",
+    tagline: "Für Expert:innen, die bei ihrem Podcast keine Kompromisse machen – und an die Qualität ihres Audios genauso hohe Ansprüche haben wie an ihr eigenes Business.",
     navHeading: "Navigation",
     legalHeading: "Rechtliches",
     impressum: "Impressum",
