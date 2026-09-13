@@ -232,13 +232,13 @@ window.CONTENT = {
     heading: "Zeit für eine Folge, die beeindruckt.",
     sub: "Schreib mir, welches Paket zu dir passt, oder frag ein individuelles Angebot an — ich melde mich in der Regel innerhalb eines Werktags.",
     button: "Rundum-sorglos-Paket anfragen",
-    microtrust: "Antwort in der Regel innerhalb eines Werktags.",
+    microtrust: "Das nächste Level deines Podcasts freischalten.",
     mailTo: "podcast@ridox.studio",
     mailSubject: "Anfrage: Rundum-sorglos-Paket – RiDoX Studio",
     // mailBodyIntro/-Outro umschließen die automatisch generierte
     // Paket-Checkliste (siehe render-content.js: buildTierChecklist).
     mailBodyIntro: "Hallo RiDoX Studio,\n\nich interessiere mich für folgendes Paket:\n",
-    mailBodyOutro: "\n\nKurz zu meinem Podcast:\n- Ungefähre Folgenlänge:\n- Veröffentlichungsrhythmus:\n- Sonstiges:\n\nViele Grüße"
+    mailBodyOutro: "\n\nDas nächste Ziel für meinen Podcast:\n- Ich brauche eine Lösung bis:\n- Kontaktiere mich am liebsten per [ ] Mail / [ ] Telefon.\n\nViele Grüße"
   },
 
   footer: {
