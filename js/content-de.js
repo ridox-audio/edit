@@ -20,7 +20,7 @@
 window.CONTENT = {
 
   meta: {
-    title: "RiDoX Studio — Podcast-Editing für Coaches & Berater",
+    title: "RiDoX Studio — Podcast-Editing für Experten",
     description: "Persönliches Podcast-Editing für Coaches, Berater und Selbstständige: Schnitt, Restauration, Mastering, Shownotes, auf Wunsch bis zur Veröffentlichung. Rundum-sorglos-Paket anfragen."
   },
 
@@ -29,16 +29,16 @@ window.CONTENT = {
     beispiele: "Beispiele",
     preise: "Preise",
     faq: "FAQ",
-    cta: "Rundum-sorglos anfragen"
+    cta: "Rundum-sorglos-Paket anfragen"
   },
 
   hero: {
     eyebrow: "Podcast-Editing für Coaches, Berater:innen & Selbstständige",
     headline: "Du sprichst, ich erledige den Rest.",
-    sub: "Für Coaches, Berater:innen und Selbstständige, die lieber ins Gespräch investieren als in Audio-Software. Du schickst die Rohaufnahme, ich liefere die sendefertige Folge zurück — bei Bedarf inklusive Veröffentlichung, Newsletter-Text und Social-Media-Clips.",
+    sub: "Für Experten, die lieber ins Gespräch investieren als in Audio-Software. Du schickst die Rohaufnahme, ich liefere die sendefertige Folge zurück — bei Bedarf inklusive Veröffentlichung, Newsletter-Text und Social-Media-Clips.",
     ctaPrimary: "Rundum-sorglos-Paket anfragen",
     ctaSecondary: "Beispiele anhören",
-    microtrust: "Transparente Festpreise · keine versteckten Kosten"
+    microtrust: "Verwandle deine Stimme in erfolgreichen Content"
   },
 
   nutzen: {
@@ -49,23 +49,23 @@ window.CONTENT = {
       { icon: "waveform", title: "Klingt professionell", desc: "Sauberer, druckvoller Klang – auf Kopfhörern genauso wie im Auto." },
       { icon: "scissors", title: "Straffer Redefluss", desc: "Denkpausen, Versprecher und Ähs verschwinden, ohne dass man den Schnitt hört." },
       { icon: "calendar", title: "Planbar", desc: "Feste Bearbeitungszeit, feste Abgabe. Dein Redaktionsplan bleibt stabil." },
-      { icon: "sliders", title: "Jede Folge einzeln abgestimmt", desc: "Kein automatisierter AI-Workflow von der Stange – ich höre mir jede Aufnahme an und schneide sie individuell für genau diese Folge." },
-      { icon: "chat", title: "Ein fester Ansprechpartner", desc: "Immer dieselbe Person am anderen Ende. Du schreibst mir, ich antworte." }
+      { icon: "sliders", title: "Jede Folge einzeln abgestimmt", desc: "Kein automatisierter AI-Workflow von der Stange – ich höre mir jede Aufnahme an und schneide sie individuell." },
+      { icon: "chat", title: "Ein fester Ansprechpartner", desc: "Immer dieselbe Person, die deine Wünsche kennt." }
     ]
   },
 
   ueber: {
     eyebrow: "Warum mit mir",
     heading: "Handarbeit statt Agentur-Fließband. Eine feste Person, die deinen Podcast kennt.",
-    p1: "Ich schneide nicht nebenbei vierzig Podcasts gleichzeitig. Ich arbeite bewusst nur mit einer kleinen Zahl an Kund:innen – jede Folge wird einzeln angehört und individuell geschnitten, statt durch ein automatisiertes Standard-Template zu laufen.",
+    p1: "Ich arbeite bewusst nur mit einer kleinen Zahl an Kund:innen – jede Folge wird einzeln angehört und individuell in Handarbeit geschnitten, statt durch ein automatisiertes AI-Template zu laufen.",
     p2: "Als Muttersprachler spezialisiere ich mich bewusst auf deutschsprachige Podcasts, um mich voll auf natürlichen Sprachfluss und Verständlichkeit konzentrieren zu können. Mein Fokus liegt auf Coaches, Berater:innen und Selbstständigen, deren Podcast ein echtes Aushängeschild ihres Business ist – nicht nur ein Hobby-Projekt nebenbei.",
-    p3: "Deine Rohdaten bleiben dabei komplett bei mir: Ich arbeite lokal, ganz ohne Cloud-KI-Tools – von Schnitt bis Transkript. Und statt wechselnder Freelancer bekommst du immer dieselbe Person, die nach der zweiten oder dritten Folge genau weiß, wie deine Show klingen soll.",
+    p3: "Deine Rohdaten bleiben dabei komplett bei mir: Ich arbeite lokal, ganz ohne Cloud-KI-Tools – von Schnitt bis Transkript. Und statt wechselnder Freelancer bekommst du immer dieselbe Person, die genau weiß, wie deine Folge klingen soll.",
     photoAlt: "Portrait im Tonstudio von RiDoX Studio",
     photoCaption: "Deine feste Ansprechperson bei RiDoX Studio",
     statsLabel: "Auf einen Blick",
     stats: [
-      { value: "6+ Jahre", label: "Erfahrung", desc: "Audio-Bearbeitung für Interviews, Solo-Formate & Business-Podcasts.", fill: 78 },
-      { value: "max. 6", label: "Kapazität", desc: "Podcasts gleichzeitig betreut – für gleichbleibende Qualität.", fill: 55 },
+      { value: "6+ Jahre", label: "Erfahrung", desc: "Audio-Bearbeitung, -Production, Mixing und Mastering.", fill: 78 },
+      { value: "max. 6", label: "Kapazität", desc: "Podcasts gleichzeitig betreut – für gleichbleibende Qualität und maximale Termintreue.", fill: 55 },
       { value: "< 24 Std.", label: "Reaktion", desc: "Übliche Antwortzeit an Werktagen.", fill: 90 }
     ]
   },
@@ -80,26 +80,26 @@ window.CONTENT = {
     // (Pfade unten). "badge" ist freier Text, keine Berechnung — bewusst
     // in einfacher Sprache, ohne Fachbegriffe wie dB oder SNR.
     items: [
+      //{
+      //  title: "Rohe Originalaufnahme",
+      //  desc: "Nur die ungeschnittene Original-Aufnahme, ganz ohne Musik oder Übergänge.",
+      //  badge: "Musik & Übergänge ergänzt",
+      //  vorherSrc: "audio/01-intro-vorher.mp3",
+      //  nachherSrc: "audio/01-intro-nachher.mp3"
+      //},
       {
-        title: "Rohes Intro ohne Sounddesign",
-        desc: "Nur die Original-Aufnahme, ganz ohne Musik oder Übergänge.",
-        badge: "Musik & Übergänge ergänzt",
-        vorherSrc: "audio/01-intro-vorher.mp3",
-        nachherSrc: "audio/01-intro-nachher.mp3"
+        title: "Komplettes Podcast Intro",
+        desc: "Begeistere deine Zuhörer mit klaren Schnitten, optimiertem Redefluss und verschmolzenen Sounds.",
+        badge: "Die ersten Sekunden zählen.",
+        vorherSrc: "audio/intro_complete_dirty_196.mp3",
+        nachherSrc: "audio/intro_complete_196.mp3"
       },
       {
-        title: "Sprache mit Störgeräuschen",
-        desc: "Rauschen, Brummen oder Nebengeräusche in der Originalaufnahme.",
-        badge: "Störgeräusche weg",
-        vorherSrc: "audio/02-stoergeraeusche-vorher.mp3",
-        nachherSrc: "audio/02-stoergeraeusche-nachher.mp3"
-      },
-      {
-        title: "Lautstärke zu leise",
-        desc: "Deutlich leiser aufgenommen als der übliche Podcast-Standard.",
-        badge: "Lautstärke passt jetzt genau",
-        vorherSrc: "audio/03-lautstaerke-vorher.mp3",
-        nachherSrc: "audio/03-lautstaerke-nachher.mp3"
+        title: "Sprachverbesserung und Lautstärke",
+        desc: "Originalaufnahme deutlich leiser aufgenommen als der Podcast-Standard, zusätzlich Rauschen, Brummen und Nebengeräusche.",
+        badge: "Sprache und Lautstärke auf den Punkt.",
+        vorherSrc: "audio/raw_input_196.mp3",
+        nachherSrc: "audio/voice_only_clean_196.mp3"
       }
     ]
   },
@@ -120,7 +120,7 @@ window.CONTENT = {
   preise: {
     eyebrow: "Preise",
     heading: "Drei klare Pakete — plus Publishing, wenn du willst",
-    intro: "Alle Preise gelten für Folgen bis 60 Minuten. Für jede weitere angefangene 30 Minuten kommt ein fester, vorher bekannter Aufschlag dazu — keine versteckten Kosten.",
+    intro: "Alle Preise gelten für Rohmaterial bis 60 Minuten. Für jede weitere angefangene 30 Minuten kommt ein fester, vorher bekannter Aufschlag dazu — keine versteckten Kosten.",
     // Jeder "key" wird auch für die Mail-Vorlage gebraucht (siehe
     // render-content.js) — beim Ändern eines Namens den key stabil
     // lassen oder an beiden Stellen anpassen.
@@ -221,8 +221,8 @@ window.CONTENT = {
       { q: "Welche Dateiformate brauchst du von mir?", a: "Am liebsten unkomprimiertes WAV, idealerweise als Einzelspuren pro Sprecher. Aufnahmen aus gängigen Videocall- und Aufnahme-Tools funktionieren aber ebenso." },
       { q: "Wie sicher sind meine Rohdaten bei dir?", a: "Sehr sicher: Ich arbeite komplett lokal, auch die Transkription läuft über eine selbst gehostete KI-Lösung statt über einen Cloud-Dienst Dritter. Deine Aufnahmen verlassen zu keinem Zeitpunkt meine eigene Infrastruktur." },
       { q: "Bearbeitest du auch Video-Podcasts?", a: "Der Fokus liegt auf Audio. Bei Bedarf spreche ich mich mit deiner Videoschnitt-Person ab, damit Schnittpunkte in Ton und Bild zusammenpassen." },
-      { q: "Wie läuft die Kommunikation ab?", a: "Direkt per E-Mail, immer mit mir als fester Ansprechperson. Dateien tausche ich mit dir über einen gemeinsamen Cloud-Ordner aus." },
-      { q: "Was kostet die Bearbeitung?", a: "Core startet bei 89 €, Studio bei 159 € und Signature bei 329 € — jeweils für Folgen bis 60 Minuten, danach ein fester Aufschlag je weitere 30 Minuten. Das Publishing-Upgrade für 129 € pro Folge lässt sich zu jedem Paket dazubuchen." },
+      { q: "Wie läuft die Kommunikation ab?", a: "Wie du wünschst. Direkt per E-Mail oder Telefon, immer mit mir als fester Ansprechperson. Dateien tausche ich mit dir über einen gemeinsamen Cloud-Ordner aus." },
+      { q: "Was kostet die Bearbeitung?", a: "Core startet bei 89 €, Studio bei 159 € und Signature bei 329 € — jeweils für Rohmaterial bis 60 Minuten, danach ein fester Aufschlag je weitere 30 Minuten. Das Publishing-Upgrade für 129 € pro Folge lässt sich zu jedem Paket dazubuchen." },
       { q: "Was, wenn keins der Pakete genau passt?", a: "Kein Problem — schreib mir einfach, welche Anforderungen du hast, dann erstelle ich dir ein individuelles Angebot." }
     ]
   },
